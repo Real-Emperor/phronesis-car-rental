@@ -38,6 +38,13 @@
   --color-popover: var(--popover);
   --color-card-foreground: var(--card-foreground);
   --color-card: var(--card);
+  --color-brand: var(--brand);
+  --color-brand-bright: var(--brand-bright);
+  --color-brand-dark: var(--brand-dark);
+  --color-accent-amber: var(--accent-amber);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-ink-softer: var(--ink-softer);
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -206,27 +213,13 @@
    Utility System — Clean, modern, conversion-focused
    ============================================================ */
 @layer utilities {
-  /* Color helpers */
-  .text-ink { color: var(--ink); }
-  .text-ink-soft { color: var(--ink-soft); }
-  .text-ink-softer { color: var(--ink-softer); }
-  .text-paper { color: var(--paper); }
-  .text-brand { color: var(--brand); }
-  .text-brand-bright { color: var(--brand-bright); }
-  .text-accent { color: var(--accent-amber); }
-  .text-success { color: var(--success); }
+  /* These are now native Tailwind colors via --color-* theme vars,
+     so bg-brand, text-brand, border-brand, group-hover:bg-brand etc.
+     all work natively. We only keep non-standard helpers here. */
 
-  .bg-paper { background: var(--paper); }
+  .text-success { color: var(--success); }
   .bg-paper-warm { background: var(--paper-warm); }
   .bg-paper-cool { background: var(--paper-cool); }
-  .bg-brand { background: var(--brand); }
-  .bg-brand-bright { background: var(--brand-bright); }
-  .bg-brand-dark { background: var(--brand-dark); }
-  .bg-accent { background: var(--accent-amber); }
-  .bg-ink { background: var(--ink); }
-
-  .border-brand { border-color: var(--brand); }
-  .border-accent { border-color: var(--accent-amber); }
   .border-rule { border-color: var(--rule); }
 
   /* Legacy aliases (now resolve to brand colors) */
