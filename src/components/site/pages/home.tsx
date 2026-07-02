@@ -11,6 +11,7 @@ import { type Car, type Category, type Brand, type SiteSettings } from '@/lib/ty
 import { useLanguage } from '@/lib/language-context';
 import { SectionReveal, TiltCard } from '../section-reveal';
 import { AnimatedCounter } from '../animated-counter';
+import { CinematicHero } from '../cinematic-hero';
 
 export function HomePage({
   cars, categories, brands, settings, nav,
@@ -27,7 +28,7 @@ export function HomePage({
 
   return (
     <div>
-      <HeroWithBooking settings={settings} heroCar={heroCar} nav={nav} categories={categories} />
+      <CinematicHero settings={settings} heroCar={heroCar} nav={nav} />
       <TrustBadges />
       <BrandMarquee brands={brands} />
       <FeaturedFleet cars={featuredCars} nav={nav} />
