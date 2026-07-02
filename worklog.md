@@ -301,3 +301,31 @@ Stage Summary:
 - Environment variables: SET ✅
 - GitHub auto-deploy: REQUIRES user to install Vercel GitHub App
 - Database: REQUIRES user to provide real PostgreSQL DATABASE_URL
+
+---
+Task ID: phronesis-disclaimer
+Agent: main
+Task: Add Phronesis Studio disclaimer popup identical to al-ain-properties reference
+
+Work Log:
+- User referenced: https://alain-properties-secure.vercel.app/ and the al-ain-properties GitHub repo
+- Investigated reference repo: found src/components/demo-disclaimer-popup.tsx component
+- Downloaded phronesis-logo.png (64x64 PNG, 8657 bytes) from reference repo's public folder
+- Created identical DemoDisclaimerPopup component in src/components/site/demo-disclaimer-popup.tsx:
+  * Dark navy header (#0a0f1e) with Phronesis logo + "Studio of Phronesis" heading
+  * "مشروع توضيحي · Demonstration Project" subtitle in italic
+  * Arabic notice box (RTL, amber bg): "هذا الموقع لأغراض العرض التوضيحي فقط..."
+  * English notice box (LTR, amber bg): "This website is for demonstration purposes only..."
+  * "صُنع بإتقان بواسطة استوديو فرونيسس · Crafted with precision by Studio of Phronesis" attribution
+  * Two blue agree buttons: "أنا أوافق" (Arabic) + "I Agree" (English)
+- Integrated popup into PublicSite shell (renders on every page load, after CarIntro)
+- Fixed lint issue: replaced useEffect+setState pattern with lazy useState(true) initializer
+- Pushed to GitHub, triggered Vercel deployment, verified live
+- VLM-verified popup renders correctly: dark header, golden eagle logo, bilingual notices, dual agree buttons
+- Verified clicking "I Agree" closes the popup and reveals homepage content
+
+Stage Summary:
+- Disclaimer popup: LIVE on https://phronesis-car-rental.vercel.app
+- Identical design, copy, and behavior to al-ain-properties reference
+- Shows on every page load, closes on "I Agree" or "أنا أوافق"
+- "Crafted by Studio of Phronesis" attribution included
