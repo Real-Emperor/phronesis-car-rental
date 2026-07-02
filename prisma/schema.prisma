@@ -1,0 +1,111 @@
+// PHRONESIS — Luxury Car Atelier | Prisma schema
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Category {
+  id        String   @id @default(cuid())
+  name      String   @unique // e.g. "Sports", "Luxury", "SUV", "Convertible", "Hypercar"
+  slug      String   @unique
+  description String?
+  cars      Car[]
+}
+
+model Brand {
+  id    String @id @default(cuid())
+  name  String @unique // e.g. "Lamborghini"
+  slug  String @unique
+  logo  String?
+  cars  Car[]
+}
+
+model Car {
+  id            String   @id @default(cuid())
+  slug          String   @unique
+  brandId       String
+  brand         Brand    @relation(fields: [brandId], references: [id])
+  model         String   // e.g. "Huracán EVO"
+  year          Int      @default(2024)
+  categoryId    String
+  category      Category @relation(fields: [categoryId], references: [id])
+
+  // Pricing (AED)
+  priceDaily    Int
+  priceWeekly   Int
+  priceMonthly  Int
+
+  // Specs
+  engine        String   // e.g. "5.2L V10"
+  power         String   // e.g. "631 HP"
+  topSpeed      String   // e.g. "325 km/h"
+  acceleration  String   // e.g. "2.9s (0-100)"
+  transmission  String   // e.g. "7-speed DCT"
+  seats         Int      @default(2)
+  fuelType      String   @default("Petrol")
+  drivetrain    String   @default("AWD")
+
+  // Display
+  tagline       String   // short hero line
+  description   String   // long-form
+  features      String   // JSON-encoded array of strings
+  color         String?  // exterior color highlight
+  available     Boolean  @default(true)
+  featured      Boolean  @default(false) // shown on homepage
+  mileageLimit  String?  // e.g. "250 km/day"
+  deposit       String?  // e.g. "AED 5,000" or "No Deposit"
+
+  // Media
+  heroImage     String   // primary image URL
+  images        CarImage[]
+
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  bookings      Booking[]
+}
+
+model CarImage {
+  id      String @id @default(cuid())
+  carId   String
+  car     Car    @relation(fields: [carId], references: [id], onDelete: Cascade)
+  url     String
+  caption String?
+  order   Int    @default(0)
+}
+
+model Booking {
+  id          String   @id @default(cuid())
+  carId       String
+  car         Car      @relation(fields: [carId], references: [id])
+  customerName String
+  email       String
+  phone       String
+  startDate   String
+  endDate     String
+  packageType String   @default("daily") // daily | weekly | monthly
+  notes       String?
+  status      String   @default("pending") // pending | confirmed | completed | cancelled
+  createdAt   DateTime @default(now())
+}
+
+model SiteSettings {
+  id            String   @id @default(cuid())
+  brandName     String   @default("PHRONESIS")
+  tagline       String   @default("Luxury Car Atelier — Al Ain")
+  phone         String   @default("+971561669766")
+  whatsapp      String   @default("+971561669766")
+  email         String   @default("concierge@phronesis.ae")
+  address       String   @default("Sheikh Zayed Bin Sultan Street, Al Ain, UAE")
+  instagram     String   @default("https://instagram.com")
+  adminPassword String   @default("phronesis2024")
+  heroHeadline String   @default("The Art of Arrival")
+  heroSubtext  String   @default("Al Ain's atelier of extraordinary automobiles — curated for those who understand that how you arrive matters.")
+  aboutText    String   @default("Phronesis was founded on a simple premise: that the experience of renting an extraordinary automobile should be as refined as the automobile itself.")
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
