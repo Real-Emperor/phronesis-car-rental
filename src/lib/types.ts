@@ -29,6 +29,7 @@ export interface Car {
   features: string;        // JSON string
   color?: string | null;
   available: boolean;
+  status: string; // available | rented | maintenance | sold
   featured: boolean;
   mileageLimit?: string | null;
   deposit?: string | null;

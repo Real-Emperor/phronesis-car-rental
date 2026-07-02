@@ -148,7 +148,7 @@ export function ImageUploader({
         <button
           type="button"
           onClick={onRemove}
-          className="p-2 text-muted-foreground hover:text-destructive transition-colors"
+          className="p-2 text-muted-foreground hover:text-red-600 transition-colors"
           title="Remove this image"
         >
           <X className="w-4 h-4" />

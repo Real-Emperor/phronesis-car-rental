@@ -28,8 +28,8 @@ export function AdminDashboard({
 
   const stats = [
     { label: 'Total Fleet',     value: cars.length,                icon: CarIcon,        color: 'text-brand' },
-    { label: 'Pending Bookings', value: pending.length,             icon: Clock,          color: 'text-amber-400' },
-    { label: 'Confirmed',        value: confirmed.length,           icon: CalendarCheck,  color: 'text-emerald-400' },
+    { label: 'Pending Bookings', value: pending.length,             icon: Clock,          color: 'text-amber-600' },
+    { label: 'Confirmed',        value: confirmed.length,           icon: CalendarCheck,  color: 'text-emerald-600' },
     { label: 'Pipeline (AED)',   value: new Intl.NumberFormat('en-AE').format(totalRevenue), icon: DollarSign, color: 'text-brand' },
   ];
 
@@ -91,7 +91,7 @@ export function AdminDashboard({
                       <div className="text-xs text-ink-soft">{b.customerName} · {b.startDate}</div>
                     </div>
                     <div className="text-right flex-shrink-0">
-                      <div className={`text-xs uppercase-luxe ${b.status === 'pending' ? 'text-amber-400' : b.status === 'confirmed' ? 'text-emerald-400' : 'text-ink-softer'}`}>
+                      <div className={`text-xs uppercase-luxe ${b.status === 'pending' ? 'text-amber-600' : b.status === 'confirmed' ? 'text-emerald-600' : 'text-ink-softer'}`}>
                         {b.status}
                       </div>
                       <div className="text-xs text-brand mt-0.5">{b.packageType}</div>

@@ -13,6 +13,8 @@ export async function GET(req: NextRequest) {
     if (category) where.category = { slug: category };
     if (brand) where.brand = { slug: brand };
     if (featured === 'true') where.featured = true;
+    // Public API: hide 'maintenance' and 'sold' cars — only show 'available' and 'rented'
+    where.status = { in: ['available', 'rented'] };
 
     const cars = await db.car.findMany({
       where,

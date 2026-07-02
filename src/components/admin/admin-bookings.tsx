@@ -28,10 +28,10 @@ export function AdminBookings({
   };
 
   const statusColor: Record<string, string> = {
-    pending: 'bg-amber-500/10 text-amber-400 border-amber-500/30',
-    confirmed: 'bg-emerald-500/10 text-emerald-400 border-emerald-500/30',
-    completed: 'bg-blue-500/10 text-blue-400 border-blue-500/30',
-    cancelled: 'bg-red-500/10 text-red-400 border-red-500/30',
+    pending: 'bg-amber-100 text-amber-600 border-amber-300',
+    confirmed: 'bg-emerald-100 text-emerald-600 border-emerald-300',
+    completed: 'bg-blue-100 text-blue-600 border-blue-300',
+    cancelled: 'bg-red-100 text-red-400 border-red-500/30',
   };
 
   return (
@@ -48,7 +48,7 @@ export function AdminBookings({
           <SelectTrigger className="bg-transparent border-rule text-ink rounded-none w-48">
             <SelectValue />
           </SelectTrigger>
-          <SelectContent className="bg-muted border-brand/40">
+          <SelectContent className="bg-white border-brand/40">
             <SelectItem value="all">All Bookings</SelectItem>
             <SelectItem value="pending">Pending</SelectItem>
             <SelectItem value="confirmed">Confirmed</SelectItem>
@@ -101,7 +101,7 @@ export function AdminBookings({
                     <SelectTrigger className="bg-transparent border-rule text-ink rounded-none w-32 h-8 text-xs">
                       <SelectValue />
                     </SelectTrigger>
-                    <SelectContent className="bg-muted border-brand/40">
+                    <SelectContent className="bg-white border-brand/40">
                       <SelectItem value="pending">Pending</SelectItem>
                       <SelectItem value="confirmed">Confirm</SelectItem>
                       <SelectItem value="completed">Complete</SelectItem>

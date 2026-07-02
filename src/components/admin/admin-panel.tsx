@@ -137,7 +137,7 @@ export function AdminPanel() {
           </button>
           <button
             onClick={onLogout}
-            className="w-full flex items-center justify-center gap-2 px-4 py-2 text-xs uppercase-luxe text-ink-soft hover:text-destructive transition-colors border border-rule hover:border-destructive/30"
+            className="w-full flex items-center justify-center gap-2 px-4 py-2 text-xs uppercase-luxe text-ink-soft hover:text-red-600 transition-colors border border-rule hover:border-red-300"
           >
             <LogOut className="w-3 h-3" /> Sign Out
           </button>

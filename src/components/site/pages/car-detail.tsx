@@ -100,7 +100,7 @@ export function CarDetailPage({
         <div className="flex items-center justify-between">
           <button
             onClick={() => nav('/fleet')}
-            className="flex items-center gap-2 text-xs uppercase-luxe text-soft hover:text-gold transition-colors"
+            className="flex items-center gap-2 text-xs uppercase-luxe text-white hover:text-gold transition-colors"
           >
             <ArrowLeft className="w-3.5 h-3.5" /> {t('car.backToFleet')}
           </button>
@@ -109,13 +109,13 @@ export function CarDetailPage({
               onClick={() => setFavorited(!favorited)}
               className="w-9 h-9 border border-gold/25 flex items-center justify-center hover:bg-gold/10 transition-colors"
             >
-              <Heart className={`w-4 h-4 ${favorited ? 'text-gold fill-gold' : 'text-softer'}`} />
+              <Heart className={`w-4 h-4 ${favorited ? 'text-gold fill-gold' : 'text-whiteer'}`} />
             </button>
             <button
               onClick={share}
               className="w-9 h-9 border border-gold/25 flex items-center justify-center hover:bg-gold/10 transition-colors"
             >
-              <Share2 className="w-4 h-4 text-softer hover:text-gold" />
+              <Share2 className="w-4 h-4 text-whiteer hover:text-gold" />
             </button>
           </div>
         </div>
@@ -140,10 +140,10 @@ export function CarDetailPage({
             <div className="absolute top-4 left-4 flex gap-2">
               <span className="bg-gold/95 backdrop-blur px-3 py-1 text-[0.65rem] uppercase tracking-wide-2 text-obsidian">{car.category.name}</span>
               {!car.available && (
-                <span className="bg-obsidian/85 backdrop-blur px-3 py-1 text-[0.65rem] uppercase tracking-wide-2 text-soft">{t('car.currentlyReserved')}</span>
+                <span className="bg-slate-800/90 backdrop-blur px-3 py-1 text-[0.65rem] uppercase tracking-wide-2 text-white">{t('car.currentlyReserved')}</span>
               )}
             </div>
-            <div className="absolute bottom-4 right-4 bg-obsidian/70 backdrop-blur px-3 py-1 text-xs text-soft">
+            <div className="absolute bottom-4 right-4 bg-obsidian/70 backdrop-blur px-3 py-1 text-xs text-white">
               {activeImage + 1} / {images.length}
             </div>
           </motion.div>
@@ -166,23 +166,23 @@ export function CarDetailPage({
         <div className="lg:col-span-2">
           <div className="uppercase-luxe mb-3">{car.brand.name} · {car.year}</div>
           <h1 className="font-serif text-4xl md:text-5xl text-ink mb-3 leading-tight">{car.model}</h1>
-          <p className="text-soft mb-6 leading-relaxed text-lg">{car.tagline}</p>
+          <p className="text-white mb-6 leading-relaxed text-lg">{car.tagline}</p>
 
           {/* Quick specs row */}
           <div className="grid grid-cols-3 gap-3 mb-6 pb-6 border-b border-gold/12">
             <div className="text-center">
               <Gauge className="w-5 h-5 text-gold mx-auto mb-1" />
-              <div className="text-xs text-softer uppercase tracking-wide-2">{t('car.topSpeed')}</div>
+              <div className="text-xs text-whiteer uppercase tracking-wide-2">{t('car.topSpeed')}</div>
               <div className="text-ink font-serif">{car.topSpeed}</div>
             </div>
             <div className="text-center">
               <Zap className="w-5 h-5 text-gold mx-auto mb-1" />
-              <div className="text-xs text-softer uppercase tracking-wide-2">{t('car.acceleration')}</div>
+              <div className="text-xs text-whiteer uppercase tracking-wide-2">{t('car.acceleration')}</div>
               <div className="text-ink font-serif">{car.acceleration}</div>
             </div>
             <div className="text-center">
               <Star className="w-5 h-5 text-gold mx-auto mb-1" />
-              <div className="text-xs text-softer uppercase tracking-wide-2">{t('car.power')}</div>
+              <div className="text-xs text-whiteer uppercase tracking-wide-2">{t('car.power')}</div>
               <div className="text-ink font-serif">{car.power}</div>
             </div>
           </div>
@@ -198,7 +198,7 @@ export function CarDetailPage({
                   className={`p-4 border text-center transition-all ${
                     packageType === p
                       ? 'border-gold bg-gold/12 text-gold'
-                      : 'border-gold/25 text-soft hover:border-gold/50'
+                      : 'border-gold/25 text-white hover:border-gold/50'
                   }`}
                 >
                   <div className="text-[0.65rem] uppercase tracking-wide-2 mb-1">{p === 'daily' ? t('car.daily') : p === 'weekly' ? t('car.weekly') : t('car.monthly')}</div>
@@ -220,7 +220,7 @@ export function CarDetailPage({
                 <button onClick={() => setDays(days + 1)} className="w-8 h-8 border border-gold/25 text-gold hover:bg-gold/10">+</button>
               </div>
               <div className="ml-auto text-right">
-                <div className="text-xs text-softer uppercase tracking-wide-2">{t('car.total')}</div>
+                <div className="text-xs text-whiteer uppercase tracking-wide-2">{t('car.total')}</div>
                 <div className="font-serif text-2xl text-gold">AED {new Intl.NumberFormat('en-AE').format(totalPrice)}</div>
               </div>
             </div>
@@ -253,7 +253,7 @@ export function CarDetailPage({
               />
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <Label className="text-[0.65rem] uppercase tracking-wide-2 text-softer mb-1 block">{t('car.pickup')}</Label>
+                  <Label className="text-[0.65rem] uppercase tracking-wide-2 text-whiteer mb-1 block">{t('car.pickup')}</Label>
                   <Input
                     type="date"
                     value={booking.startDate}
@@ -262,7 +262,7 @@ export function CarDetailPage({
                   />
                 </div>
                 <div>
-                  <Label className="text-[0.65rem] uppercase tracking-wide-2 text-softer mb-1 block">{t('car.return')}</Label>
+                  <Label className="text-[0.65rem] uppercase tracking-wide-2 text-whiteer mb-1 block">{t('car.return')}</Label>
                   <Input
                     type="date"
                     value={booking.endDate}
@@ -297,10 +297,10 @@ export function CarDetailPage({
 
           {/* Trust badges */}
           <div className="grid grid-cols-2 gap-3 text-xs">
-            <div className="flex items-center gap-2 text-soft"><Shield className="w-4 h-4 text-gold" /> {t('car.comprehensiveInsurance')}</div>
-            <div className="flex items-center gap-2 text-soft"><Clock className="w-4 h-4 text-gold" /> {t('car.concierge247')}</div>
-            <div className="flex items-center gap-2 text-soft"><Check className="w-4 h-4 text-gold" /> {car.deposit || 'No Deposit'}</div>
-            <div className="flex items-center gap-2 text-soft"><Calendar className="w-4 h-4 text-gold" /> {car.mileageLimit || 'Unlimited km'}</div>
+            <div className="flex items-center gap-2 text-white"><Shield className="w-4 h-4 text-gold" /> {t('car.comprehensiveInsurance')}</div>
+            <div className="flex items-center gap-2 text-white"><Clock className="w-4 h-4 text-gold" /> {t('car.concierge247')}</div>
+            <div className="flex items-center gap-2 text-white"><Check className="w-4 h-4 text-gold" /> {car.deposit || 'No Deposit'}</div>
+            <div className="flex items-center gap-2 text-white"><Calendar className="w-4 h-4 text-gold" /> {car.mileageLimit || 'Unlimited km'}</div>
           </div>
         </div>
       </div>
@@ -320,7 +320,7 @@ export function CarDetailPage({
               <SectionReveal key={s.label} delay={i * 0.05}>
                 <div className="bg-obsidian p-6 hover:bg-charcoal transition-colors">
                   <Icon className="w-5 h-5 text-gold mb-3" />
-                  <div className="text-[0.65rem] uppercase tracking-wide-2 text-softer mb-1">{s.labelKey ? t(s.labelKey as any) : s.label}</div>
+                  <div className="text-[0.65rem] uppercase tracking-wide-2 text-whiteer mb-1">{s.labelKey ? t(s.labelKey as any) : s.label}</div>
                   <div className="font-serif text-xl text-ink">{s.value}</div>
                 </div>
               </SectionReveal>
@@ -339,7 +339,7 @@ export function CarDetailPage({
           <h2 className="font-serif text-3xl md:text-4xl text-ink mb-6 leading-tight">
             {car.tagline}
           </h2>
-          <p className="text-soft text-lg leading-relaxed mb-10">
+          <p className="text-white text-lg leading-relaxed mb-10">
             {car.description}
           </p>
 
@@ -348,7 +348,7 @@ export function CarDetailPage({
               <div className="uppercase-luxe mb-4">{t('car.notableFeatures')}</div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                 {features.map(f => (
-                  <div key={f} className="flex items-center gap-3 text-soft">
+                  <div key={f} className="flex items-center gap-3 text-white">
                     <span className="w-1.5 h-1.5 bg-gold rounded-full flex-shrink-0" />
                     {f}
                   </div>

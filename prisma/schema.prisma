@@ -55,6 +55,7 @@ model Car {
   features      String   // JSON-encoded array of strings
   color         String?  // exterior color highlight
   available     Boolean  @default(true)
+  status        String   @default("available") // available | rented | maintenance | sold
   featured      Boolean  @default(false) // shown on homepage
   mileageLimit  String?  // e.g. "250 km/day"
   deposit       String?  // e.g. "AED 5,000" or "No Deposit"
