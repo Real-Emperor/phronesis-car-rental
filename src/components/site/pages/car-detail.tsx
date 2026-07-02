@@ -100,7 +100,7 @@ export function CarDetailPage({
         <div className="flex items-center justify-between">
           <button
             onClick={() => nav('/fleet')}
-            className="flex items-center gap-2 text-xs uppercase-luxe text-white hover:text-brand transition-colors"
+            className="flex items-center gap-2 text-xs uppercase-luxe text-ink hover:text-brand transition-colors"
           >
             <ArrowLeft className="w-3.5 h-3.5" /> {t('car.backToFleet')}
           </button>
@@ -143,7 +143,7 @@ export function CarDetailPage({
                 <span className="bg-slate-800/90 backdrop-blur px-3 py-1 text-[0.65rem] uppercase tracking-wide-2 text-white">{t('car.currentlyReserved')}</span>
               )}
             </div>
-            <div className="absolute bottom-4 right-4 bg-white/70 backdrop-blur px-3 py-1 text-xs text-white">
+            <div className="absolute bottom-4 right-4 bg-white/70 backdrop-blur px-3 py-1 text-xs text-ink">
               {activeImage + 1} / {images.length}
             </div>
           </motion.div>
@@ -166,7 +166,7 @@ export function CarDetailPage({
         <div className="lg:col-span-2">
           <div className="uppercase-luxe mb-3">{car.brand.name} · {car.year}</div>
           <h1 className="font-serif text-4xl md:text-5xl text-ink mb-3 leading-tight">{car.model}</h1>
-          <p className="text-white mb-6 leading-relaxed text-lg">{car.tagline}</p>
+          <p className="text-ink mb-6 leading-relaxed text-lg">{car.tagline}</p>
 
           {/* Quick specs row */}
           <div className="grid grid-cols-3 gap-3 mb-6 pb-6 border-b border-rule">
@@ -198,7 +198,7 @@ export function CarDetailPage({
                   className={`p-4 border text-center transition-all ${
                     packageType === p
                       ? 'border-gold bg-rule text-brand'
-                      : 'border-rule text-white hover:border-brand/40'
+                      : 'border-rule text-ink hover:border-brand/40'
                   }`}
                 >
                   <div className="text-[0.65rem] uppercase tracking-wide-2 mb-1">{p === 'daily' ? t('car.daily') : p === 'weekly' ? t('car.weekly') : t('car.monthly')}</div>
@@ -297,15 +297,15 @@ export function CarDetailPage({
 
           {/* Trust badges */}
           <div className="grid grid-cols-2 gap-3 text-xs">
-            <div className="flex items-center gap-2 text-white"><Shield className="w-4 h-4 text-brand" /> {t('car.comprehensiveInsurance')}</div>
-            <div className="flex items-center gap-2 text-white"><Clock className="w-4 h-4 text-brand" /> {t('car.concierge247')}</div>
-            <div className="flex items-center gap-2 text-white"><Check className="w-4 h-4 text-brand" /> {car.deposit || 'No Deposit'}</div>
-            <div className="flex items-center gap-2 text-white"><Calendar className="w-4 h-4 text-brand" /> {car.mileageLimit || 'Unlimited km'}</div>
+            <div className="flex items-center gap-2 text-ink"><Shield className="w-4 h-4 text-brand" /> {t('car.comprehensiveInsurance')}</div>
+            <div className="flex items-center gap-2 text-ink"><Clock className="w-4 h-4 text-brand" /> {t('car.concierge247')}</div>
+            <div className="flex items-center gap-2 text-ink"><Check className="w-4 h-4 text-brand" /> {car.deposit || 'No Deposit'}</div>
+            <div className="flex items-center gap-2 text-ink"><Calendar className="w-4 h-4 text-brand" /> {car.mileageLimit || 'Unlimited km'}</div>
           </div>
         </div>
       </div>
 
-      {/* Specs grid */}
+      {/* Specs grid — redesigned with gradient cards, colored icons, visual depth */}
       <div className="max-w-7xl mx-auto px-6 lg:px-10 py-16 border-t border-rule">
         <SectionReveal>
           <div className="flex items-center gap-3 mb-10">
@@ -313,15 +313,21 @@ export function CarDetailPage({
             <span className="uppercase-luxe">{t('car.specs')}</span>
           </div>
         </SectionReveal>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-rule">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {specs.map((s, i) => {
             const Icon = s.icon;
             return (
               <SectionReveal key={s.label} delay={i * 0.05}>
-                <div className="bg-white p-6 hover:bg-paper-warm transition-colors">
-                  <Icon className="w-5 h-5 text-brand mb-3" />
-                  <div className="text-[0.65rem] uppercase tracking-wide-2 text-ink-soft mb-1">{s.labelKey ? t(s.labelKey as any) : s.label}</div>
-                  <div className="font-serif text-xl text-ink">{s.value}</div>
+                <div className="relative rounded-xl p-6 bg-gradient-to-br from-white to-slate-50 border border-rule hover:border-brand/40 hover:shadow-lg transition-all duration-300 group overflow-hidden">
+                  {/* Decorative gradient blob */}
+                  <div className="absolute -top-6 -right-6 w-20 h-20 bg-brand/5 rounded-full blur-2xl group-hover:bg-brand/10 transition-colors" />
+                  <div className="relative">
+                    <div className="w-10 h-10 rounded-lg bg-brand/10 flex items-center justify-center mb-3 group-hover:bg-brand group-hover:scale-110 transition-all duration-300">
+                      <Icon className="w-5 h-5 text-brand group-hover:text-white transition-colors" />
+                    </div>
+                    <div className="text-[0.65rem] uppercase tracking-wide-2 text-ink-softer mb-1 font-semibold">{s.labelKey ? t(s.labelKey as any) : s.label}</div>
+                    <div className="font-serif text-lg text-ink">{s.value}</div>
+                  </div>
                 </div>
               </SectionReveal>
             );
@@ -329,7 +335,7 @@ export function CarDetailPage({
         </div>
       </div>
 
-      {/* Description */}
+      {/* Description — redesigned with elegant card, accent border, quote-style */}
       <div className="max-w-4xl mx-auto px-6 lg:px-10 py-16 border-t border-rule">
         <SectionReveal>
           <div className="flex items-center gap-3 mb-10">
@@ -339,19 +345,33 @@ export function CarDetailPage({
           <h2 className="font-serif text-3xl md:text-4xl text-ink mb-6 leading-tight">
             {car.tagline}
           </h2>
-          <p className="text-white text-lg leading-relaxed mb-10">
-            {car.description}
-          </p>
+          <div className="relative bg-gradient-to-br from-slate-50 to-white border-l-4 border-brand rounded-r-xl p-8 shadow-sm">
+            <p className="text-ink-soft text-lg leading-relaxed">
+              {car.description}
+            </p>
+          </div>
 
           {features.length > 0 && (
             <>
-              <div className="uppercase-luxe mb-4">{t('car.notableFeatures')}</div>
+              <div className="flex items-center gap-3 mt-12 mb-6">
+                <span className="gold-divider" />
+                <span className="uppercase-luxe">{t('car.notableFeatures')}</span>
+              </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                {features.map(f => (
-                  <div key={f} className="flex items-center gap-3 text-white">
-                    <span className="w-1.5 h-1.5 bg-brand rounded-full flex-shrink-0" />
-                    {f}
-                  </div>
+                {features.map((f, idx) => (
+                  <motion.div
+                    key={f}
+                    initial={{ opacity: 0, x: -10 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: idx * 0.05 }}
+                    className="flex items-center gap-3 px-4 py-3 bg-white border border-rule rounded-lg hover:border-brand/40 hover:shadow-sm hover:bg-brand/5 transition-all duration-300 group"
+                  >
+                    <div className="w-8 h-8 rounded-full bg-brand/10 flex items-center justify-center flex-shrink-0 group-hover:bg-brand transition-colors">
+                      <Check className="w-4 h-4 text-brand group-hover:text-white transition-colors" />
+                    </div>
+                    <span className="text-ink text-sm font-medium">{f}</span>
+                  </motion.div>
                 ))}
               </div>
             </>
