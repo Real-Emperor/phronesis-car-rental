@@ -48,21 +48,21 @@ export function AdminFleetManager({
             <span className="gold-divider" />
             <span className="uppercase-luxe">Fleet Management</span>
           </div>
-          <h1 className="font-serif text-4xl text-ivory">{cars.length} Automobile{cars.length !== 1 ? 's' : ''}</h1>
+          <h1 className="font-serif text-4xl text-ink">{cars.length} Automobile{cars.length !== 1 ? 's' : ''}</h1>
         </div>
         <div className="flex items-center gap-3">
           <div className="relative">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-softer" />
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-ink-softer" />
             <Input
               value={search}
               onChange={e => setSearch(e.target.value)}
               placeholder="Search fleet…"
-              className="bg-transparent border-gold/20 text-ivory placeholder:text-softer rounded-none pl-10 w-64"
+              className="bg-transparent border-rule text-ink placeholder:text-ink-softer rounded-none pl-10 w-64"
             />
           </div>
           <Button
             onClick={() => setCreating(true)}
-            className="bg-gold text-obsidian hover:bg-ivory rounded-none tracking-luxe uppercase text-xs"
+            className="bg-brand text-white hover:bg-ivory rounded-none tracking-luxe uppercase text-xs"
           >
             <Plus className="w-4 h-4 mr-1" /> Add Car
           </Button>
@@ -88,45 +88,45 @@ export function AdminFleetManager({
                 <tr key={car.id} className="border-b border-gold/5 hover:bg-gold/[0.02]">
                   <td className="p-4">
                     <div className="flex items-center gap-3">
-                      <div className="w-14 h-10 bg-charcoal flex-shrink-0 overflow-hidden">
+                      <div className="w-14 h-10 bg-muted flex-shrink-0 overflow-hidden">
                         <img src={car.heroImage} alt="" className="w-full h-full object-cover" />
                       </div>
                       <div>
-                        <div className="text-ivory text-sm">{car.brand.name} {car.model}</div>
-                        <div className="text-xs text-softer">{car.year} · {car.power}</div>
+                        <div className="text-ink text-sm">{car.brand.name} {car.model}</div>
+                        <div className="text-xs text-ink-softer">{car.year} · {car.power}</div>
                       </div>
                     </div>
                   </td>
-                  <td className="p-4 text-sm text-ivory/70">{car.category.name}</td>
-                  <td className="p-4 text-sm text-gold">AED {formatAED(car.priceDaily)}</td>
+                  <td className="p-4 text-sm text-ink/70">{car.category.name}</td>
+                  <td className="p-4 text-sm text-brand">AED {formatAED(car.priceDaily)}</td>
                   <td className="p-4">
                     <span className={`text-xs px-2 py-1 ${car.available ? 'bg-emerald-500/10 text-emerald-400' : 'bg-amber-500/10 text-amber-400'}`}>
                       {car.available ? 'Available' : 'Reserved'}
                     </span>
                   </td>
                   <td className="p-4">
-                    {car.featured ? <Star className="w-4 h-4 text-gold fill-gold" /> : <Star className="w-4 h-4 text-ivory/20" />}
+                    {car.featured ? <Star className="w-4 h-4 text-brand fill-gold" /> : <Star className="w-4 h-4 text-ink/20" />}
                   </td>
                   <td className="p-4">
                     <div className="flex items-center justify-end gap-2">
                       <a
                         href={`#/car/${car.slug}`}
                         target="_blank"
-                        className="p-2 hover:bg-gold/10 text-soft hover:text-gold transition-colors"
+                        className="p-2 hover:bg-brand/10 text-ink-soft hover:text-brand transition-colors"
                         title="View on site"
                       >
                         <ExternalLink className="w-3.5 h-3.5" />
                       </a>
                       <button
                         onClick={() => setEditing(car)}
-                        className="p-2 hover:bg-gold/10 text-soft hover:text-gold transition-colors"
+                        className="p-2 hover:bg-brand/10 text-ink-soft hover:text-brand transition-colors"
                         title="Edit"
                       >
                         <Edit2 className="w-3.5 h-3.5" />
                       </button>
                       <button
                         onClick={() => setDeleting(car)}
-                        className="p-2 hover:bg-destructive/10 text-soft hover:text-destructive transition-colors"
+                        className="p-2 hover:bg-destructive/10 text-ink-soft hover:text-destructive transition-colors"
                         title="Delete"
                       >
                         <Trash2 className="w-3.5 h-3.5" />
@@ -139,7 +139,7 @@ export function AdminFleetManager({
           </table>
         </div>
         {filtered.length === 0 && (
-          <div className="py-16 text-center text-softer text-sm">No automobiles match your search.</div>
+          <div className="py-16 text-center text-ink-softer text-sm">No automobiles match your search.</div>
         )}
       </div>
 
@@ -159,15 +159,15 @@ export function AdminFleetManager({
 
       {/* Delete confirmation */}
       <AlertDialog open={!!deleting} onOpenChange={(o) => !o && setDeleting(null)}>
-        <AlertDialogContent className="bg-charcoal border-gold/30 text-ivory">
+        <AlertDialogContent className="bg-muted border-brand/40 text-ink">
           <AlertDialogHeader>
             <AlertDialogTitle className="font-serif text-2xl">Delete this automobile?</AlertDialogTitle>
-            <AlertDialogDescription className="text-soft">
-              You are about to permanently remove <span className="text-gold">{deleting?.brand.name} {deleting?.model}</span> from the fleet. This cannot be undone.
+            <AlertDialogDescription className="text-ink-soft">
+              You are about to permanently remove <span className="text-brand">{deleting?.brand.name} {deleting?.model}</span> from the fleet. This cannot be undone.
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>
-            <AlertDialogCancel className="bg-transparent border-gold/20 text-ivory hover:bg-gold/10 rounded-none">Cancel</AlertDialogCancel>
+            <AlertDialogCancel className="bg-transparent border-rule text-ink hover:bg-brand/10 rounded-none">Cancel</AlertDialogCancel>
             <AlertDialogAction
               onClick={async () => {
                 if (!deleting) return;
@@ -180,7 +180,7 @@ export function AdminFleetManager({
                   toast.error(e.message || 'Failed to delete');
                 }
               }}
-              className="bg-destructive text-ivory hover:bg-destructive/80 rounded-none"
+              className="bg-destructive text-ink hover:bg-destructive/80 rounded-none"
             >
               Delete Permanently
             </AlertDialogAction>
@@ -271,9 +271,9 @@ function CarEditor({
 
   return (
     <Dialog open={true} onOpenChange={(o) => !o && onClose()}>
-      <DialogContent className="bg-charcoal border-gold/30 text-ivory max-w-4xl max-h-[92vh] overflow-y-auto luxe-scroll rounded-none">
+      <DialogContent className="bg-muted border-brand/40 text-ink max-w-4xl max-h-[92vh] overflow-y-auto luxe-scroll rounded-none">
         <DialogHeader>
-          <DialogTitle className="font-serif text-3xl text-ivory">
+          <DialogTitle className="font-serif text-3xl text-ink">
             {isNew ? 'Add to Fleet' : `Edit · ${car!.brand.name} ${car!.model}`}
           </DialogTitle>
         </DialogHeader>
@@ -282,49 +282,49 @@ function CarEditor({
           {/* Basics */}
           <Section title="Basics">
             <Field label="Model">
-              <Input value={form.model} onChange={e => update('model', e.target.value)} className="bg-transparent border-gold/20 text-ivory rounded-none" />
+              <Input value={form.model} onChange={e => update('model', e.target.value)} className="bg-transparent border-rule text-ink rounded-none" />
             </Field>
             <Field label="Brand">
               <Select value={form.brandId} onValueChange={v => update('brandId', v)}>
-                <SelectTrigger className="bg-transparent border-gold/20 text-ivory rounded-none"><SelectValue /></SelectTrigger>
-                <SelectContent className="bg-charcoal border-gold/30">
+                <SelectTrigger className="bg-transparent border-rule text-ink rounded-none"><SelectValue /></SelectTrigger>
+                <SelectContent className="bg-muted border-brand/40">
                   {brands.map(b => <SelectItem key={b.id} value={b.id}>{b.name}</SelectItem>)}
                 </SelectContent>
               </Select>
             </Field>
             <Field label="Category">
               <Select value={form.categoryId} onValueChange={v => update('categoryId', v)}>
-                <SelectTrigger className="bg-transparent border-gold/20 text-ivory rounded-none"><SelectValue /></SelectTrigger>
-                <SelectContent className="bg-charcoal border-gold/30">
+                <SelectTrigger className="bg-transparent border-rule text-ink rounded-none"><SelectValue /></SelectTrigger>
+                <SelectContent className="bg-muted border-brand/40">
                   {categories.map(c => <SelectItem key={c.id} value={c.id}>{c.name}</SelectItem>)}
                 </SelectContent>
               </Select>
             </Field>
             <Field label="Year">
-              <Input type="number" value={form.year} onChange={e => update('year', e.target.value)} className="bg-transparent border-gold/20 text-ivory rounded-none" />
+              <Input type="number" value={form.year} onChange={e => update('year', e.target.value)} className="bg-transparent border-rule text-ink rounded-none" />
             </Field>
           </Section>
 
           {/* Pricing */}
           <Section title="Pricing (AED)">
-            <Field label="Daily"><Input type="number" value={form.priceDaily} onChange={e => update('priceDaily', e.target.value)} className="bg-transparent border-gold/20 text-ivory rounded-none" /></Field>
-            <Field label="Weekly"><Input type="number" value={form.priceWeekly} onChange={e => update('priceWeekly', e.target.value)} className="bg-transparent border-gold/20 text-ivory rounded-none" /></Field>
-            <Field label="Monthly"><Input type="number" value={form.priceMonthly} onChange={e => update('priceMonthly', e.target.value)} className="bg-transparent border-gold/20 text-ivory rounded-none" /></Field>
-            <Field label="Deposit"><Input value={form.deposit} onChange={e => update('deposit', e.target.value)} className="bg-transparent border-gold/20 text-ivory rounded-none" /></Field>
-            <Field label="Mileage Limit"><Input value={form.mileageLimit} onChange={e => update('mileageLimit', e.target.value)} className="bg-transparent border-gold/20 text-ivory rounded-none" /></Field>
+            <Field label="Daily"><Input type="number" value={form.priceDaily} onChange={e => update('priceDaily', e.target.value)} className="bg-transparent border-rule text-ink rounded-none" /></Field>
+            <Field label="Weekly"><Input type="number" value={form.priceWeekly} onChange={e => update('priceWeekly', e.target.value)} className="bg-transparent border-rule text-ink rounded-none" /></Field>
+            <Field label="Monthly"><Input type="number" value={form.priceMonthly} onChange={e => update('priceMonthly', e.target.value)} className="bg-transparent border-rule text-ink rounded-none" /></Field>
+            <Field label="Deposit"><Input value={form.deposit} onChange={e => update('deposit', e.target.value)} className="bg-transparent border-rule text-ink rounded-none" /></Field>
+            <Field label="Mileage Limit"><Input value={form.mileageLimit} onChange={e => update('mileageLimit', e.target.value)} className="bg-transparent border-rule text-ink rounded-none" /></Field>
           </Section>
 
           {/* Specs */}
           <Section title="Specifications">
-            <Field label="Engine"><Input value={form.engine} onChange={e => update('engine', e.target.value)} placeholder="e.g. 5.2L V10" className="bg-transparent border-gold/20 text-ivory rounded-none" /></Field>
-            <Field label="Power"><Input value={form.power} onChange={e => update('power', e.target.value)} placeholder="e.g. 631 HP" className="bg-transparent border-gold/20 text-ivory rounded-none" /></Field>
-            <Field label="Top Speed"><Input value={form.topSpeed} onChange={e => update('topSpeed', e.target.value)} placeholder="e.g. 325 km/h" className="bg-transparent border-gold/20 text-ivory rounded-none" /></Field>
-            <Field label="0-100"><Input value={form.acceleration} onChange={e => update('acceleration', e.target.value)} placeholder="e.g. 2.9s" className="bg-transparent border-gold/20 text-ivory rounded-none" /></Field>
-            <Field label="Transmission"><Input value={form.transmission} onChange={e => update('transmission', e.target.value)} className="bg-transparent border-gold/20 text-ivory rounded-none" /></Field>
+            <Field label="Engine"><Input value={form.engine} onChange={e => update('engine', e.target.value)} placeholder="e.g. 5.2L V10" className="bg-transparent border-rule text-ink rounded-none" /></Field>
+            <Field label="Power"><Input value={form.power} onChange={e => update('power', e.target.value)} placeholder="e.g. 631 HP" className="bg-transparent border-rule text-ink rounded-none" /></Field>
+            <Field label="Top Speed"><Input value={form.topSpeed} onChange={e => update('topSpeed', e.target.value)} placeholder="e.g. 325 km/h" className="bg-transparent border-rule text-ink rounded-none" /></Field>
+            <Field label="0-100"><Input value={form.acceleration} onChange={e => update('acceleration', e.target.value)} placeholder="e.g. 2.9s" className="bg-transparent border-rule text-ink rounded-none" /></Field>
+            <Field label="Transmission"><Input value={form.transmission} onChange={e => update('transmission', e.target.value)} className="bg-transparent border-rule text-ink rounded-none" /></Field>
             <Field label="Drivetrain">
               <Select value={form.drivetrain} onValueChange={v => update('drivetrain', v)}>
-                <SelectTrigger className="bg-transparent border-gold/20 text-ivory rounded-none"><SelectValue /></SelectTrigger>
-                <SelectContent className="bg-charcoal border-gold/30">
+                <SelectTrigger className="bg-transparent border-rule text-ink rounded-none"><SelectValue /></SelectTrigger>
+                <SelectContent className="bg-muted border-brand/40">
                   <SelectItem value="AWD">AWD</SelectItem>
                   <SelectItem value="RWD">RWD</SelectItem>
                   <SelectItem value="FWD">FWD</SelectItem>
@@ -332,11 +332,11 @@ function CarEditor({
                 </SelectContent>
               </Select>
             </Field>
-            <Field label="Seats"><Input type="number" value={form.seats} onChange={e => update('seats', e.target.value)} className="bg-transparent border-gold/20 text-ivory rounded-none" /></Field>
+            <Field label="Seats"><Input type="number" value={form.seats} onChange={e => update('seats', e.target.value)} className="bg-transparent border-rule text-ink rounded-none" /></Field>
             <Field label="Fuel">
               <Select value={form.fuelType} onValueChange={v => update('fuelType', v)}>
-                <SelectTrigger className="bg-transparent border-gold/20 text-ivory rounded-none"><SelectValue /></SelectTrigger>
-                <SelectContent className="bg-charcoal border-gold/30">
+                <SelectTrigger className="bg-transparent border-rule text-ink rounded-none"><SelectValue /></SelectTrigger>
+                <SelectContent className="bg-muted border-brand/40">
                   <SelectItem value="Petrol">Petrol</SelectItem>
                   <SelectItem value="Hybrid">Hybrid</SelectItem>
                   <SelectItem value="Electric">Electric</SelectItem>
@@ -350,21 +350,21 @@ function CarEditor({
           <Section title="Story">
             <div className="col-span-2">
               <Field label="Tagline (one line)">
-                <Input value={form.tagline} onChange={e => update('tagline', e.target.value)} className="bg-transparent border-gold/20 text-ivory rounded-none" />
+                <Input value={form.tagline} onChange={e => update('tagline', e.target.value)} className="bg-transparent border-rule text-ink rounded-none" />
               </Field>
             </div>
             <div className="col-span-2">
               <Field label="Description">
-                <Textarea value={form.description} onChange={e => update('description', e.target.value)} className="bg-transparent border-gold/20 text-ivory rounded-none min-h-[120px]" />
+                <Textarea value={form.description} onChange={e => update('description', e.target.value)} className="bg-transparent border-rule text-ink rounded-none min-h-[120px]" />
               </Field>
             </div>
             <div className="col-span-2">
               <Field label="Features (one per line)">
-                <Textarea value={form.features} onChange={e => update('features', e.target.value)} className="bg-transparent border-gold/20 text-ivory rounded-none min-h-[100px]" placeholder="Naturally Aspirated V10&#10;Rear-Wheel Steering&#10;…" />
+                <Textarea value={form.features} onChange={e => update('features', e.target.value)} className="bg-transparent border-rule text-ink rounded-none min-h-[100px]" placeholder="Naturally Aspirated V10&#10;Rear-Wheel Steering&#10;…" />
               </Field>
             </div>
             <Field label="Color">
-              <Input value={form.color} onChange={e => update('color', e.target.value)} className="bg-transparent border-gold/20 text-ivory rounded-none" />
+              <Input value={form.color} onChange={e => update('color', e.target.value)} className="bg-transparent border-rule text-ink rounded-none" />
             </Field>
           </Section>
 
@@ -394,18 +394,18 @@ function CarEditor({
           <Section title="Display">
             <div className="flex items-center gap-3 col-span-2">
               <Switch checked={form.available} onCheckedChange={v => update('available', v)} />
-              <Label className="text-sm text-ivory">Available for booking</Label>
+              <Label className="text-sm text-ink">Available for booking</Label>
             </div>
             <div className="flex items-center gap-3 col-span-2">
               <Switch checked={form.featured} onCheckedChange={v => update('featured', v)} />
-              <Label className="text-sm text-ivory">Featured on homepage</Label>
+              <Label className="text-sm text-ink">Featured on homepage</Label>
             </div>
           </Section>
         </div>
 
         <DialogFooter>
-          <Button onClick={onClose} variant="outline" className="border-gold/20 text-ivory hover:bg-gold/10 rounded-none">Cancel</Button>
-          <Button onClick={save} disabled={saving} className="bg-gold text-obsidian hover:bg-ivory rounded-none tracking-luxe uppercase text-xs">
+          <Button onClick={onClose} variant="outline" className="border-rule text-ink hover:bg-brand/10 rounded-none">Cancel</Button>
+          <Button onClick={save} disabled={saving} className="bg-brand text-white hover:bg-ivory rounded-none tracking-luxe uppercase text-xs">
             {saving ? 'Saving…' : isNew ? 'Add to Fleet' : 'Save Changes'}
           </Button>
         </DialogFooter>
@@ -417,7 +417,7 @@ function CarEditor({
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div>
-      <div className="uppercase-luxe mb-3 pb-2 border-b border-gold/10">{title}</div>
+      <div className="uppercase-luxe mb-3 pb-2 border-b border-rule">{title}</div>
       <div className="grid grid-cols-2 md:grid-cols-3 gap-4">{children}</div>
     </div>
   );
@@ -426,7 +426,7 @@ function Section({ title, children }: { title: string; children: React.ReactNode
 function Field({ label, children }: { label: string; children: React.ReactNode }) {
   return (
     <div>
-      <Label className="text-[0.65rem] uppercase tracking-wide-2 text-softer mb-1 block">{label}</Label>
+      <Label className="text-[0.65rem] uppercase tracking-wide-2 text-ink-softer mb-1 block">{label}</Label>
       {children}
     </div>
   );

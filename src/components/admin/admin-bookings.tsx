@@ -42,13 +42,13 @@ export function AdminBookings({
             <span className="gold-divider" />
             <span className="uppercase-luxe">Reservations</span>
           </div>
-          <h1 className="font-serif text-4xl text-ivory">{bookings.length} Booking{bookings.length !== 1 ? 's' : ''}</h1>
+          <h1 className="font-serif text-4xl text-ink">{bookings.length} Booking{bookings.length !== 1 ? 's' : ''}</h1>
         </div>
         <Select value={filter} onValueChange={setFilter}>
-          <SelectTrigger className="bg-transparent border-gold/20 text-ivory rounded-none w-48">
+          <SelectTrigger className="bg-transparent border-rule text-ink rounded-none w-48">
             <SelectValue />
           </SelectTrigger>
-          <SelectContent className="bg-charcoal border-gold/30">
+          <SelectContent className="bg-muted border-brand/40">
             <SelectItem value="all">All Bookings</SelectItem>
             <SelectItem value="pending">Pending</SelectItem>
             <SelectItem value="confirmed">Confirmed</SelectItem>
@@ -60,8 +60,8 @@ export function AdminBookings({
 
       {filtered.length === 0 ? (
         <div className="glass-card py-24 text-center">
-          <CalendarCheck className="w-10 h-10 text-ivory/20 mx-auto mb-4" />
-          <div className="text-soft">No bookings yet.</div>
+          <CalendarCheck className="w-10 h-10 text-ink/20 mx-auto mb-4" />
+          <div className="text-ink-soft">No bookings yet.</div>
         </div>
       ) : (
         <div className="space-y-4">
@@ -70,38 +70,38 @@ export function AdminBookings({
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 items-center">
                 {/* Car */}
                 <div className="lg:col-span-4 flex items-center gap-3">
-                  <div className="w-16 h-12 bg-obsidian overflow-hidden flex-shrink-0">
+                  <div className="w-16 h-12 bg-muted overflow-hidden flex-shrink-0">
                     {b.car && <img src={b.car.heroImage} alt="" className="w-full h-full object-cover" />}
                   </div>
                   <div>
-                    <div className="text-ivory text-sm">{b.car?.brand.name} {b.car?.model}</div>
-                    <div className="text-xs text-gold capitalize">{b.packageType} · AED {b.car && new Intl.NumberFormat('en-AE').format(b.packageType === 'daily' ? b.car.priceDaily : b.packageType === 'weekly' ? b.car.priceWeekly : b.car.priceMonthly)}</div>
+                    <div className="text-ink text-sm">{b.car?.brand.name} {b.car?.model}</div>
+                    <div className="text-xs text-brand capitalize">{b.packageType} · AED {b.car && new Intl.NumberFormat('en-AE').format(b.packageType === 'daily' ? b.car.priceDaily : b.packageType === 'weekly' ? b.car.priceWeekly : b.car.priceMonthly)}</div>
                   </div>
                 </div>
 
                 {/* Customer */}
                 <div className="lg:col-span-3 space-y-1 text-sm">
-                  <div className="flex items-center gap-2 text-ivory/70"><User className="w-3 h-3 text-gold" /> {b.customerName}</div>
-                  <div className="flex items-center gap-2 text-ivory/70"><Phone className="w-3 h-3 text-gold" /> {b.phone}</div>
-                  {b.email && <div className="flex items-center gap-2 text-ivory/70"><Mail className="w-3 h-3 text-gold" /> {b.email}</div>}
+                  <div className="flex items-center gap-2 text-ink/70"><User className="w-3 h-3 text-brand" /> {b.customerName}</div>
+                  <div className="flex items-center gap-2 text-ink/70"><Phone className="w-3 h-3 text-brand" /> {b.phone}</div>
+                  {b.email && <div className="flex items-center gap-2 text-ink/70"><Mail className="w-3 h-3 text-brand" /> {b.email}</div>}
                 </div>
 
                 {/* Dates */}
                 <div className="lg:col-span-2 space-y-1 text-sm">
-                  <div className="flex items-center gap-2 text-ivory/70"><Calendar className="w-3 h-3 text-gold" /> {b.startDate}</div>
-                  <div className="flex items-center gap-2 text-ivory/70"><Calendar className="w-3 h-3 text-gold" /> {b.endDate}</div>
+                  <div className="flex items-center gap-2 text-ink/70"><Calendar className="w-3 h-3 text-brand" /> {b.startDate}</div>
+                  <div className="flex items-center gap-2 text-ink/70"><Calendar className="w-3 h-3 text-brand" /> {b.endDate}</div>
                 </div>
 
                 {/* Status */}
                 <div className="lg:col-span-3 flex flex-col items-end gap-2">
-                  <span className={`text-xs px-3 py-1 border ${statusColor[b.status] || 'border-gold/20 text-ivory'}`}>
+                  <span className={`text-xs px-3 py-1 border ${statusColor[b.status] || 'border-rule text-ink'}`}>
                     {b.status}
                   </span>
                   <Select value={b.status} onValueChange={v => updateStatus(b.id, v)}>
-                    <SelectTrigger className="bg-transparent border-gold/20 text-ivory rounded-none w-32 h-8 text-xs">
+                    <SelectTrigger className="bg-transparent border-rule text-ink rounded-none w-32 h-8 text-xs">
                       <SelectValue />
                     </SelectTrigger>
-                    <SelectContent className="bg-charcoal border-gold/30">
+                    <SelectContent className="bg-muted border-brand/40">
                       <SelectItem value="pending">Pending</SelectItem>
                       <SelectItem value="confirmed">Confirm</SelectItem>
                       <SelectItem value="completed">Complete</SelectItem>
@@ -112,8 +112,8 @@ export function AdminBookings({
               </div>
 
               {b.notes && (
-                <div className="mt-4 pt-4 border-t border-gold/10 flex items-start gap-2 text-sm text-soft">
-                  <MessageSquare className="w-3.5 h-3.5 text-gold flex-shrink-0 mt-0.5" />
+                <div className="mt-4 pt-4 border-t border-rule flex items-start gap-2 text-sm text-ink-soft">
+                  <MessageSquare className="w-3.5 h-3.5 text-brand flex-shrink-0 mt-0.5" />
                   <span>{b.notes}</span>
                 </div>
               )}

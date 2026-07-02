@@ -89,16 +89,16 @@ export function AdminPanel() {
   ];
 
   return (
-    <div className="min-h-screen bg-obsidian text-ivory flex">
+    <div className="min-h-screen bg-muted text-ink flex">
       {/* Sidebar */}
       <aside
-        className={`fixed md:sticky top-0 left-0 z-40 h-screen w-64 bg-[#040404] border-r border-gold/10 flex flex-col transition-transform duration-300 ${
+        className={`fixed md:sticky top-0 left-0 z-40 h-screen w-64 bg-white border-r border-rule flex flex-col transition-transform duration-300 ${
           sidebarOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0'
         }`}
       >
         {/* Logo */}
-        <div className="p-6 border-b border-gold/10">
-          <div className="font-serif text-2xl text-ivory">PHRONESIS</div>
+        <div className="p-6 border-b border-rule">
+          <div className="font-serif text-2xl text-ink">PHRONESIS</div>
           <div className="text-[0.6rem] uppercase-luxe mt-1">Management</div>
         </div>
 
@@ -112,7 +112,7 @@ export function AdminPanel() {
                 key={item.id}
                 onClick={() => { setTab(item.id); setSidebarOpen(false); }}
                 className={`w-full flex items-center justify-between gap-3 px-4 py-3 text-sm transition-colors ${
-                  active ? 'bg-gold/10 text-gold border-l-2 border-gold' : 'text-soft hover:text-ivory hover:bg-gold/5'
+                  active ? 'bg-brand/10 text-brand border-l-2 border-gold' : 'text-ink-soft hover:text-ink hover:bg-brand/5'
                 }`}
               >
                 <div className="flex items-center gap-3">
@@ -120,7 +120,7 @@ export function AdminPanel() {
                   <span className="uppercase tracking-wide-2 text-xs">{item.label}</span>
                 </div>
                 {item.badge !== undefined && item.badge > 0 && (
-                  <span className={`text-[0.65rem] px-2 py-0.5 ${active ? 'bg-gold text-obsidian' : 'bg-gold/20 text-gold'}`}>{item.badge}</span>
+                  <span className={`text-[0.65rem] px-2 py-0.5 ${active ? 'bg-brand text-white' : 'bg-gold/20 text-brand'}`}>{item.badge}</span>
                 )}
               </button>
             );
@@ -128,16 +128,16 @@ export function AdminPanel() {
         </nav>
 
         {/* Footer actions */}
-        <div className="p-4 border-t border-gold/10 space-y-2">
+        <div className="p-4 border-t border-rule space-y-2">
           <button
             onClick={viewSite}
-            className="w-full flex items-center justify-center gap-2 px-4 py-2 text-xs uppercase-luxe text-soft hover:text-gold transition-colors border border-gold/10 hover:border-gold/30"
+            className="w-full flex items-center justify-center gap-2 px-4 py-2 text-xs uppercase-luxe text-ink-soft hover:text-brand transition-colors border border-rule hover:border-brand/40"
           >
             <ExternalLink className="w-3 h-3" /> View Site
           </button>
           <button
             onClick={onLogout}
-            className="w-full flex items-center justify-center gap-2 px-4 py-2 text-xs uppercase-luxe text-soft hover:text-destructive transition-colors border border-gold/10 hover:border-destructive/30"
+            className="w-full flex items-center justify-center gap-2 px-4 py-2 text-xs uppercase-luxe text-ink-soft hover:text-destructive transition-colors border border-rule hover:border-destructive/30"
           >
             <LogOut className="w-3 h-3" /> Sign Out
           </button>
@@ -148,18 +148,18 @@ export function AdminPanel() {
       {sidebarOpen && (
         <div
           onClick={() => setSidebarOpen(false)}
-          className="fixed inset-0 bg-obsidian/80 z-30 md:hidden"
+          className="fixed inset-0 bg-muted/80 z-30 md:hidden"
         />
       )}
 
       {/* Main */}
       <div className="flex-1 flex flex-col min-w-0">
         {/* Top bar (mobile) */}
-        <div className="md:hidden sticky top-0 z-20 bg-[#040404] border-b border-gold/10 p-4 flex items-center justify-between">
-          <button onClick={() => setSidebarOpen(true)} className="text-ivory">
+        <div className="md:hidden sticky top-0 z-20 bg-white border-b border-rule p-4 flex items-center justify-between">
+          <button onClick={() => setSidebarOpen(true)} className="text-ink">
             <Menu className="w-5 h-5" />
           </button>
-          <div className="font-serif text-lg text-ivory">PHRONESIS Admin</div>
+          <div className="font-serif text-lg text-ink">PHRONESIS Admin</div>
           <div className="w-5" />
         </div>
 
@@ -167,7 +167,7 @@ export function AdminPanel() {
         <main className="flex-1 p-6 lg:p-10 overflow-x-hidden">
           {loading ? (
             <div className="min-h-[60vh] flex items-center justify-center">
-              <div className="text-gold uppercase-luxe animate-pulse">Loading console…</div>
+              <div className="text-brand uppercase-luxe animate-pulse">Loading console…</div>
             </div>
           ) : (
             <AnimatePresence mode="wait">

@@ -229,6 +229,16 @@ export const translations = {
     'common.year': 'Year',
     'common.loading': 'Loading…',
 
+    // Hero section (cinematic hero)
+    'hero.tagline': 'Luxury Car Atelier — Al Ain',
+    'hero.headline': 'The Art of Arrival',
+    'hero.subtext': 'Al Ain\'s atelier of extraordinary automobiles — curated for those who understand that how you arrive matters.',
+    'hero.exploreFleet': 'Explore the Fleet',
+    'hero.speakConcierge': 'Speak to Concierge',
+    'hero.carsAvailable': 'Cars Available',
+    'hero.customerRating': 'Customer Rating',
+    'hero.support': 'Support',
+
     // Home v2 — booking widget + new sections
     'home.booking.pickupLocation': 'Pickup Location',
     'home.booking.pickupDate': 'Pickup Date',
@@ -482,6 +492,16 @@ export const translations = {
     'common.reserved': 'محجوزة',
     'common.year': 'السنة',
     'common.loading': 'جارٍ التحميل…',
+
+    // Hero section
+    'hero.tagline': 'أتيليه السيارات الفاخرة — العين',
+    'hero.headline': 'فنُّ الوصول',
+    'hero.subtext': 'بيتُ السيّارات الاستثنائية في العين، منتقاةٌ لمن يدركون أن طريقة وصولك تعني الكثير.',
+    'hero.exploreFleet': 'تعرّف على أسطولنا',
+    'hero.speakConcierge': 'تحدّث مع مستشارك الخاص',
+    'hero.carsAvailable': 'سيّارة جاهزة',
+    'hero.customerRating': 'تقييم الزبائن',
+    'hero.support': 'دعمٌ متواصل',
 
     // Home v2 — booking widget + new sections
     'home.booking.pickupLocation': 'مكان الاستلام',
@@ -739,6 +759,16 @@ export const translations = {
     'common.year': 'वर्ष',
     'common.loading': 'लोड हो रहा है…',
 
+    // Hero section
+    'hero.tagline': 'लग्ज़री कार एटेलियर — अल आइन',
+    'hero.headline': 'पहुँचने की कला',
+    'hero.subtext': 'अल आइन का असाधारण वाहनों का घर — उनके लिए जो समझते हैं कि आपके पहुँचने का तरीका मायने रखता है।',
+    'hero.exploreFleet': 'संग्रह देखिए',
+    'hero.speakConcierge': 'हमारी सेवा से बात करें',
+    'hero.carsAvailable': 'कारें उपलब्ध',
+    'hero.customerRating': 'ग्राहक रेटिंग',
+    'hero.support': 'सहायता',
+
     // Home v2 — booking widget + new sections
     'home.booking.pickupLocation': 'पिकअप स्थान',
     'home.booking.pickupDate': 'पिकअप तिथि',
@@ -994,6 +1024,16 @@ export const translations = {
     'common.reserved': 'ബുക്ക്ഡ്',
     'common.year': 'വർഷം',
     'common.loading': 'ലോഡ് ചെയ്യുന്നു…',
+
+    // Hero section
+    'hero.tagline': 'ലക്സറി കാർ അറ്റെലിയർ — അൽ ഐൻ',
+    'hero.headline': 'എത്തിച്ചേരുന്നതിന്റെ കല',
+    'hero.subtext': 'അൽ ഐനിലെ അസാധാരണ കാറുകളുടെ വീട് — എത്തിച്ചേരുന്ന രീതി പ്രധാനമാണെന്ന് മനസ്സിലാക്കുന്നവർക്കായി.',
+    'hero.exploreFleet': 'കാറുകൾ കാണൂ',
+    'hero.speakConcierge': 'നമ്മുടെ കൺസിയേജുമായി സംസാരിക്കൂ',
+    'hero.carsAvailable': 'കാറുകൾ ലഭ്യം',
+    'hero.customerRating': 'കസ്റ്റമർ റേറ്റിംഗ്',
+    'hero.support': 'പിന്തുണ',
 
     // Home v2 — booking widget + new sections
     'home.booking.pickupLocation': 'പിക്കപ്പ് സ്ഥലം',
