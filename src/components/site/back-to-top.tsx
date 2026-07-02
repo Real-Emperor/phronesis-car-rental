@@ -21,10 +21,10 @@ export function BackToTop() {
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0.5 }}
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-          className="fixed bottom-6 left-6 z-50 w-11 h-11 glass-card flex items-center justify-center hover:bg-gold hover:text-obsidian transition-colors group"
+          className="fixed bottom-6 left-6 z-50 w-11 h-11 glass-card flex items-center justify-center hover:bg-brand hover:text-white transition-colors group"
           aria-label="Back to top"
         >
-          <ArrowUp className="w-4 h-4 text-gold group-hover:text-obsidian transition-colors" />
+          <ArrowUp className="w-4 h-4 text-brand group-hover:text-white transition-colors" />
         </motion.button>
       )}
     </AnimatePresence>

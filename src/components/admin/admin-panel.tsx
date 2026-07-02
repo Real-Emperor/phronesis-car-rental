@@ -120,7 +120,7 @@ export function AdminPanel() {
                   <span className="uppercase tracking-wide-2 text-xs">{item.label}</span>
                 </div>
                 {item.badge !== undefined && item.badge > 0 && (
-                  <span className={`text-[0.65rem] px-2 py-0.5 ${active ? 'bg-brand text-white' : 'bg-gold/20 text-brand'}`}>{item.badge}</span>
+                  <span className={`text-[0.65rem] px-2 py-0.5 ${active ? 'bg-brand text-white' : 'bg-brand/20 text-brand'}`}>{item.badge}</span>
                 )}
               </button>
             );

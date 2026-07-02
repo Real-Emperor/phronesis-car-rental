@@ -48,7 +48,7 @@ export function AboutPage({ settings, nav }: { settings: SiteSettings; nav: (p: 
           alt={t('about.atelier')}
           className="absolute inset-0 w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/50 to-obsidian/70" />
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/50 to-slate-900/70" />
         <div className="relative h-full flex items-end">
           <div className="max-w-7xl mx-auto px-6 lg:px-10 pb-12 w-full">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
@@ -97,8 +97,8 @@ export function AboutPage({ settings, nav }: { settings: SiteSettings; nav: (p: 
                   transition={{ type: 'spring', stiffness: 300, damping: 25 }}
                   className="glass-card glass-card-hover p-8 h-full group"
                 >
-                  <div className="w-12 h-12 border border-gold/30 flex items-center justify-center mb-5 group-hover:bg-gold group-hover:border-gold transition-colors">
-                    <Icon className="w-5 h-5 text-gold group-hover:text-obsidian transition-colors" />
+                  <div className="w-12 h-12 border border-brand/30 flex items-center justify-center mb-5 group-hover:bg-brand group-hover:border-brand transition-colors">
+                    <Icon className="w-5 h-5 text-brand group-hover:text-white transition-colors" />
                   </div>
                   <h3 className="font-serif text-2xl text-ink mb-3">{p.title}</h3>
                   <p className="text-soft leading-relaxed">{p.text}</p>
@@ -123,7 +123,7 @@ export function AboutPage({ settings, nav }: { settings: SiteSettings; nav: (p: 
         <div className="space-y-px">
           {steps.map((step, i) => (
             <SectionReveal key={step.n} delay={i * 0.08}>
-              <div className="grid grid-cols-12 gap-6 py-8 border-t border-gold/12 last:border-b">
+              <div className="grid grid-cols-12 gap-6 py-8 border-t border-rule last:border-b">
                 <div className="col-span-2 md:col-span-1 font-serif text-3xl text-gradient-gold">{step.n}</div>
                 <div className="col-span-10 md:col-span-4">
                   <div className="font-serif text-xl text-ink">{step.t}</div>
@@ -154,7 +154,7 @@ export function AboutPage({ settings, nav }: { settings: SiteSettings; nav: (p: 
                 const Icon = b.icon;
                 return (
                   <div key={b.label} className="flex flex-col items-center gap-2">
-                    <Icon className="w-6 h-6 text-gold" />
+                    <Icon className="w-6 h-6 text-brand" />
                     <div className="text-xs uppercase-luxe">{b.label}</div>
                   </div>
                 );
@@ -167,13 +167,13 @@ export function AboutPage({ settings, nav }: { settings: SiteSettings; nav: (p: 
       {/* CTA */}
       <div className="max-w-4xl mx-auto px-6 lg:px-10 text-center">
         <SectionReveal>
-          <Sparkles className="w-8 h-8 text-gold mx-auto mb-6" />
+          <Sparkles className="w-8 h-8 text-brand mx-auto mb-6" />
           <h2 className="font-serif text-4xl md:text-5xl text-ink mb-6">
             {t('about.readyToDrive')}
           </h2>
           <button
             onClick={() => nav('/fleet')}
-            className="group inline-flex items-center gap-3 bg-gold text-obsidian px-8 py-4 text-xs tracking-luxe uppercase font-medium hover:bg-gold-bright transition-all shine-on-hover"
+            className="group inline-flex items-center gap-3 bg-brand text-white px-8 py-4 text-xs tracking-luxe uppercase font-medium hover:bg-brand-bright transition-all shine-on-hover"
           >
             {t('cta.viewFleet')}
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />

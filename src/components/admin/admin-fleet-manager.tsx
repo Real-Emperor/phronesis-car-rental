@@ -85,7 +85,7 @@ export function AdminFleetManager({
             </thead>
             <tbody>
               {filtered.map(car => (
-                <tr key={car.id} className="border-b border-gold/5 hover:bg-gold/[0.02]">
+                <tr key={car.id} className="border-b border-rule hover:bg-brand/[0.02]">
                   <td className="p-4">
                     <div className="flex items-center gap-3">
                       <div className="w-14 h-10 bg-muted flex-shrink-0 overflow-hidden">

@@ -98,34 +98,34 @@ export function FleetPage({
                 value={search}
                 onChange={e => setSearch(e.target.value)}
                 placeholder={t('fleet.searchPlaceholder')}
-                className="w-full bg-transparent border border-gold/25 pl-10 pr-4 py-3 text-sm text-ink placeholder:text-ink-softer focus:outline-none focus:border-gold/60 transition-colors"
+                className="w-full bg-transparent border border-rule pl-10 pr-4 py-3 text-sm text-ink placeholder:text-ink-softer focus:outline-none focus:border-gold/60 transition-colors"
               />
             </div>
             <button
               onClick={() => setShowFilters(!showFilters)}
-              className="lg:hidden flex items-center justify-center gap-2 border border-gold/25 px-4 py-3 text-xs uppercase-luxe"
+              className="lg:hidden flex items-center justify-center gap-2 border border-rule px-4 py-3 text-xs uppercase-luxe"
             >
-              <SlidersHorizontal className="w-3.5 h-3.5" /> {t('fleet.filters')} {hasFilters && <span className="w-1.5 h-1.5 bg-gold rounded-full" />}
+              <SlidersHorizontal className="w-3.5 h-3.5" /> {t('fleet.filters')} {hasFilters && <span className="w-1.5 h-1.5 bg-brand rounded-full" />}
             </button>
 
             <div className="hidden lg:flex items-center gap-3">
               <Select value={category} onValueChange={setCategory}>
-                <SelectTrigger className="w-[140px] bg-transparent border-gold/25 text-ink rounded-none"><SelectValue placeholder={t("fleet.allTypes")} /></SelectTrigger>
-                <SelectContent className="bg-charcoal border-gold/30">
+                <SelectTrigger className="w-[140px] bg-transparent border-rule text-ink rounded-none"><SelectValue placeholder={t("fleet.allTypes")} /></SelectTrigger>
+                <SelectContent className="bg-paper-warm border-brand/30">
                   <SelectItem value="all">{t('fleet.allTypes')}</SelectItem>
                   {categories.map(c => <SelectItem key={c.id} value={c.slug}>{c.name}</SelectItem>)}
                 </SelectContent>
               </Select>
               <Select value={brand} onValueChange={setBrand}>
-                <SelectTrigger className="w-[160px] bg-transparent border-gold/25 text-ink rounded-none"><SelectValue placeholder={t("fleet.allBrands")} /></SelectTrigger>
-                <SelectContent className="bg-charcoal border-gold/30">
+                <SelectTrigger className="w-[160px] bg-transparent border-rule text-ink rounded-none"><SelectValue placeholder={t("fleet.allBrands")} /></SelectTrigger>
+                <SelectContent className="bg-paper-warm border-brand/30">
                   <SelectItem value="all">{t('fleet.allBrands')}</SelectItem>
                   {brands.map(b => <SelectItem key={b.id} value={b.slug}>{b.name}</SelectItem>)}
                 </SelectContent>
               </Select>
               <Select value={priceRange} onValueChange={setPriceRange}>
-                <SelectTrigger className="w-[150px] bg-transparent border-gold/25 text-ink rounded-none"><SelectValue placeholder={t("fleet.anyPrice")} /></SelectTrigger>
-                <SelectContent className="bg-charcoal border-gold/30">
+                <SelectTrigger className="w-[150px] bg-transparent border-rule text-ink rounded-none"><SelectValue placeholder={t("fleet.anyPrice")} /></SelectTrigger>
+                <SelectContent className="bg-paper-warm border-brand/30">
                   <SelectItem value="all">{t('fleet.anyPrice')}</SelectItem>
                   <SelectItem value="lt2000">{t('fleet.underPrice')}</SelectItem>
                   <SelectItem value="2000-3000">{t('fleet.priceRange1')}</SelectItem>
@@ -134,8 +134,8 @@ export function FleetPage({
                 </SelectContent>
               </Select>
               <Select value={sort} onValueChange={setSort}>
-                <SelectTrigger className="w-[140px] bg-transparent border-gold/25 text-ink rounded-none"><SelectValue placeholder={t("fleet.sortNewest")} /></SelectTrigger>
-                <SelectContent className="bg-charcoal border-gold/30">
+                <SelectTrigger className="w-[140px] bg-transparent border-rule text-ink rounded-none"><SelectValue placeholder={t("fleet.sortNewest")} /></SelectTrigger>
+                <SelectContent className="bg-paper-warm border-brand/30">
                   <SelectItem value="newest">{t('fleet.sortNewest')}</SelectItem>
                   <SelectItem value="price-asc">{t('fleet.sortPriceAsc')}</SelectItem>
                   <SelectItem value="price-desc">{t('fleet.sortPriceDesc')}</SelectItem>
@@ -143,7 +143,7 @@ export function FleetPage({
                 </SelectContent>
               </Select>
               {hasFilters && (
-                <button onClick={clearFilters} className="text-xs uppercase-luxe text-softer hover:text-gold flex items-center gap-1">
+                <button onClick={clearFilters} className="text-xs uppercase-luxe text-softer hover:text-brand flex items-center gap-1">
                   <X className="w-3 h-3" /> {t('fleet.clear')}
                 </button>
               )}
@@ -151,24 +151,24 @@ export function FleetPage({
           </div>
 
           {showFilters && (
-            <div className="lg:hidden mt-4 pt-4 border-t border-gold/12 grid grid-cols-2 gap-3">
+            <div className="lg:hidden mt-4 pt-4 border-t border-rule grid grid-cols-2 gap-3">
               <Select value={category} onValueChange={setCategory}>
-                <SelectTrigger className="bg-transparent border-gold/25 text-ink rounded-none"><SelectValue placeholder={t("fleet.allTypes")} /></SelectTrigger>
-                <SelectContent className="bg-charcoal border-gold/30">
+                <SelectTrigger className="bg-transparent border-rule text-ink rounded-none"><SelectValue placeholder={t("fleet.allTypes")} /></SelectTrigger>
+                <SelectContent className="bg-paper-warm border-brand/30">
                   <SelectItem value="all">All Types</SelectItem>
                   {categories.map(c => <SelectItem key={c.id} value={c.slug}>{c.name}</SelectItem>)}
                 </SelectContent>
               </Select>
               <Select value={brand} onValueChange={setBrand}>
-                <SelectTrigger className="bg-transparent border-gold/25 text-ink rounded-none"><SelectValue placeholder={t("fleet.allBrands")} /></SelectTrigger>
-                <SelectContent className="bg-charcoal border-gold/30">
+                <SelectTrigger className="bg-transparent border-rule text-ink rounded-none"><SelectValue placeholder={t("fleet.allBrands")} /></SelectTrigger>
+                <SelectContent className="bg-paper-warm border-brand/30">
                   <SelectItem value="all">All Brands</SelectItem>
                   {brands.map(b => <SelectItem key={b.id} value={b.slug}>{b.name}</SelectItem>)}
                 </SelectContent>
               </Select>
               <Select value={priceRange} onValueChange={setPriceRange}>
-                <SelectTrigger className="bg-transparent border-gold/25 text-ink rounded-none"><SelectValue placeholder={t("fleet.anyPrice")} /></SelectTrigger>
-                <SelectContent className="bg-charcoal border-gold/30">
+                <SelectTrigger className="bg-transparent border-rule text-ink rounded-none"><SelectValue placeholder={t("fleet.anyPrice")} /></SelectTrigger>
+                <SelectContent className="bg-paper-warm border-brand/30">
                   <SelectItem value="all">Any Price</SelectItem>
                   <SelectItem value="lt2000">Under AED 2,000</SelectItem>
                   <SelectItem value="2000-3000">AED 2,000–3,000</SelectItem>
@@ -177,8 +177,8 @@ export function FleetPage({
                 </SelectContent>
               </Select>
               <Select value={sort} onValueChange={setSort}>
-                <SelectTrigger className="bg-transparent border-gold/25 text-ink rounded-none"><SelectValue placeholder={t("fleet.sortNewest")} /></SelectTrigger>
-                <SelectContent className="bg-charcoal border-gold/30">
+                <SelectTrigger className="bg-transparent border-rule text-ink rounded-none"><SelectValue placeholder={t("fleet.sortNewest")} /></SelectTrigger>
+                <SelectContent className="bg-paper-warm border-brand/30">
                   <SelectItem value="newest">Newest</SelectItem>
                   <SelectItem value="price-asc">Price ↑</SelectItem>
                   <SelectItem value="price-desc">Price ↓</SelectItem>
@@ -186,7 +186,7 @@ export function FleetPage({
                 </SelectContent>
               </Select>
               {hasFilters && (
-                <button onClick={clearFilters} className="col-span-2 text-xs uppercase-luxe text-softer hover:text-gold flex items-center justify-center gap-1 py-2">
+                <button onClick={clearFilters} className="col-span-2 text-xs uppercase-luxe text-softer hover:text-brand flex items-center justify-center gap-1 py-2">
                   <X className="w-3 h-3" /> {t('fleet.clearFilters')}
                 </button>
               )}
@@ -198,17 +198,17 @@ export function FleetPage({
         {hasFilters && (
           <div className="flex flex-wrap items-center gap-2 mt-4">
             {category !== 'all' && (
-              <button onClick={() => setCategory('all')} className="flex items-center gap-2 px-3 py-1 bg-gold/15 border border-gold/30 text-gold text-xs">
+              <button onClick={() => setCategory('all')} className="flex items-center gap-2 px-3 py-1 bg-rule border border-brand/30 text-brand text-xs">
                 {categories.find(c => c.slug === category)?.name} <X className="w-3 h-3" />
               </button>
             )}
             {brand !== 'all' && (
-              <button onClick={() => setBrand('all')} className="flex items-center gap-2 px-3 py-1 bg-gold/15 border border-gold/30 text-gold text-xs">
+              <button onClick={() => setBrand('all')} className="flex items-center gap-2 px-3 py-1 bg-rule border border-brand/30 text-brand text-xs">
                 {brands.find(b => b.slug === brand)?.name} <X className="w-3 h-3" />
               </button>
             )}
             {search && (
-              <button onClick={() => setSearch('')} className="flex items-center gap-2 px-3 py-1 bg-gold/15 border border-gold/30 text-gold text-xs">
+              <button onClick={() => setSearch('')} className="flex items-center gap-2 px-3 py-1 bg-rule border border-brand/30 text-brand text-xs">
                 "{search}" <X className="w-3 h-3" />
               </button>
             )}
@@ -222,7 +222,7 @@ export function FleetPage({
           <div className="text-center py-24">
             <Filter className="w-12 h-12 text-softer mx-auto mb-4" />
             <div className="font-serif text-3xl text-ink mb-4">{t('fleet.noResults')}</div>
-            <button onClick={clearFilters} className="text-gold uppercase-luxe hover:underline">{t('fleet.reset')}</button>
+            <button onClick={clearFilters} className="text-brand uppercase-luxe hover:underline">{t('fleet.reset')}</button>
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -246,19 +246,19 @@ function FleetCarCard({ car, nav, index }: { car: Car; nav: (p: string) => void;
         whileHover={{ y: -6 }}
         transition={{ type: 'spring', stiffness: 300, damping: 25 }}
       >
-        <div className="relative aspect-[4/3] overflow-hidden bg-charcoal mb-5 gradient-border">
+        <div className="relative aspect-[4/3] overflow-hidden bg-paper-warm mb-5 gradient-border">
           <img
             src={car.heroImage}
             alt={`${car.brand.name} ${car.model}`}
             className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1.2s] group-hover:scale-110"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-obsidian/90 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-transparent to-transparent" />
 
           <div className="absolute top-4 left-4 flex flex-col gap-2">
             {!car.available && (
-              <span className="bg-obsidian/85 backdrop-blur px-3 py-1 text-[0.65rem] uppercase tracking-wide-2 text-soft">{t('common.reserved')}</span>
+              <span className="bg-slate-800/90 backdrop-blur px-3 py-1 text-[0.65rem] uppercase tracking-wide-2 text-soft">{t('common.reserved')}</span>
             )}
-            <span className="bg-gold/95 backdrop-blur px-3 py-1 text-[0.65rem] uppercase tracking-wide-2 text-obsidian">
+            <span className="bg-brand backdrop-blur px-3 py-1 text-[0.65rem] uppercase tracking-wide-2 text-white">
               {car.category.name}
             </span>
           </div>
@@ -266,8 +266,8 @@ function FleetCarCard({ car, nav, index }: { car: Car; nav: (p: string) => void;
           {/* Quick specs overlay on hover */}
           <div className="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-400">
             <div className="flex items-center gap-4 text-xs text-soft">
-              <span className="flex items-center gap-1"><Gauge className="w-3.5 h-3.5 text-gold" /> {car.topSpeed}</span>
-              <span className="flex items-center gap-1"><Zap className="w-3.5 h-3.5 text-gold" /> {car.acceleration}</span>
+              <span className="flex items-center gap-1"><Gauge className="w-3.5 h-3.5 text-brand" /> {car.topSpeed}</span>
+              <span className="flex items-center gap-1"><Zap className="w-3.5 h-3.5 text-brand" /> {car.acceleration}</span>
             </div>
           </div>
         </div>
@@ -276,26 +276,26 @@ function FleetCarCard({ car, nav, index }: { car: Car; nav: (p: string) => void;
           <div className="flex items-center justify-between">
             <div className="uppercase-luxe text-[0.65rem]">{car.brand.name}</div>
             <div className="flex items-center gap-0.5">
-              {[...Array(5)].map((_, i) => <Star key={i} className="w-2.5 h-2.5 text-gold fill-gold" />)}
+              {[...Array(5)].map((_, i) => <Star key={i} className="w-2.5 h-2.5 text-brand fill-brand" />)}
             </div>
           </div>
-          <h3 className="font-serif text-2xl text-ink group-hover:text-gold transition-colors">{car.model}</h3>
+          <h3 className="font-serif text-2xl text-ink group-hover:text-brand transition-colors">{car.model}</h3>
           <p className="text-sm text-soft leading-relaxed line-clamp-1">{car.tagline}</p>
 
           <div className="flex items-center gap-4 text-xs text-softer pt-2">
-            <span className="flex items-center gap-1"><Gauge className="w-3 h-3 text-gold" /> {car.topSpeed}</span>
-            <span className="flex items-center gap-1"><Zap className="w-3 h-3 text-gold" /> {car.acceleration}</span>
-            <span className="flex items-center gap-1"><Calendar className="w-3 h-3 text-gold" /> {car.year}</span>
+            <span className="flex items-center gap-1"><Gauge className="w-3 h-3 text-brand" /> {car.topSpeed}</span>
+            <span className="flex items-center gap-1"><Zap className="w-3 h-3 text-brand" /> {car.acceleration}</span>
+            <span className="flex items-center gap-1"><Calendar className="w-3 h-3 text-brand" /> {car.year}</span>
           </div>
 
-          <div className="flex items-center justify-between pt-3 border-t border-gold/12">
+          <div className="flex items-center justify-between pt-3 border-t border-rule">
             <div>
               <span className="text-softer text-xs uppercase tracking-wide-2">{t('common.from')}</span>
-              <div className="font-serif text-xl text-gold">
+              <div className="font-serif text-xl text-brand">
                 AED {new Intl.NumberFormat('en-AE').format(car.priceDaily)}<span className="text-xs text-softer ml-1">{t('common.perDay')}</span>
               </div>
             </div>
-            <span className="text-xs uppercase-luxe text-gold flex items-center gap-1 group-hover:gap-2 transition-all">
+            <span className="text-xs uppercase-luxe text-brand flex items-center gap-1 group-hover:gap-2 transition-all">
               {t('cta.reserve_now')} <ArrowRight className="w-3 h-3" />
             </span>
           </div>

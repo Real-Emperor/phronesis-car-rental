@@ -110,7 +110,7 @@ function PublicSiteInner({ route }: { route: Route }) {
               <div className="min-h-[70vh] flex items-center justify-center">
                 <div className="flex flex-col items-center gap-4">
                   <div className="w-12 h-12 border-2 border-gold/20 border-t-gold rounded-full animate-spin" />
-                  <div className="text-gold uppercase-luxe animate-pulse">{t('home.loadingAtelier')}</div>
+                  <div className="text-brand uppercase-luxe animate-pulse">{t('home.loadingAtelier')}</div>
                 </div>
               </div>
             ) : (
@@ -189,14 +189,14 @@ function Header({
                 key={item.path}
                 onClick={() => nav(item.path)}
                 className={`text-sm tracking-wide-2 uppercase transition-colors relative py-1 ${
-                  active ? 'text-gold' : 'text-soft hover:text-gold'
+                  active ? 'text-brand' : 'text-soft hover:text-brand'
                 }`}
               >
                 {item.label}
                 {active && (
                   <motion.span
                     layoutId="nav-underline"
-                    className="absolute -bottom-1 left-0 right-0 h-px bg-gold"
+                    className="absolute -bottom-1 left-0 right-0 h-px bg-brand"
                   />
                 )}
               </button>
@@ -209,7 +209,7 @@ function Header({
           <LanguageSwitcher />
           <a
             href={`tel:${settings.phone}`}
-            className="flex items-center gap-2 text-sm text-soft hover:text-gold transition-colors"
+            className="flex items-center gap-2 text-sm text-soft hover:text-brand transition-colors"
           >
             <Phone className="w-3.5 h-3.5" />
             <span className="hidden lg:inline" dir="ltr">{settings.phone}</span>
@@ -217,7 +217,7 @@ function Header({
           <Button
             onClick={() => nav('/fleet')}
             variant="outline"
-            className="border-gold/50 text-gold hover:bg-gold hover:text-obsidian rounded-none px-6 tracking-wide-2 uppercase text-xs"
+            className="border-brand/40 text-brand hover:bg-brand hover:text-white rounded-none px-6 tracking-wide-2 uppercase text-xs"
           >
             {t('cta.reserve')}
           </Button>
@@ -247,7 +247,7 @@ function Header({
                 <button
                   key={item.path}
                   onClick={() => nav(item.path)}
-                  className="text-left text-sm tracking-wide-2 uppercase text-soft hover:text-gold py-3 border-b border-gold/5"
+                  className="text-left text-sm tracking-wide-2 uppercase text-soft hover:text-brand py-3 border-b border-gold/5"
                 >
                   {item.label}
                 </button>
@@ -257,12 +257,12 @@ function Header({
                 <LanguageSwitcher />
               </div>
               <a href={`tel:${settings.phone}`} className="flex items-center gap-2 text-sm text-soft py-2">
-                <Phone className="w-3.5 h-3.5 text-gold" />
+                <Phone className="w-3.5 h-3.5 text-brand" />
                 <span dir="ltr">{settings.phone}</span>
               </a>
               <Button
                 onClick={() => nav('/fleet')}
-                className="bg-gold text-obsidian hover:bg-gold-bright rounded-none mt-2 tracking-wide-2 uppercase text-xs"
+                className="bg-brand text-white hover:bg-brand-bright rounded-none mt-2 tracking-wide-2 uppercase text-xs"
               >
                 {t('cta.reserveCar')}
               </Button>

@@ -41,7 +41,7 @@ export function CarDetailPage({
     return (
       <div className="pt-32 pb-24 max-w-7xl mx-auto px-6 lg:px-10 text-center">
         <div className="font-serif text-4xl text-ink mb-4">{t('car.notFound')}</div>
-        <button onClick={() => nav('/fleet')} className="text-gold uppercase-luxe hover:underline">← {t('car.backToFleet')}</button>
+        <button onClick={() => nav('/fleet')} className="text-brand uppercase-luxe hover:underline">← {t('car.backToFleet')}</button>
       </div>
     );
   }
@@ -100,22 +100,22 @@ export function CarDetailPage({
         <div className="flex items-center justify-between">
           <button
             onClick={() => nav('/fleet')}
-            className="flex items-center gap-2 text-xs uppercase-luxe text-white hover:text-gold transition-colors"
+            className="flex items-center gap-2 text-xs uppercase-luxe text-white hover:text-brand transition-colors"
           >
             <ArrowLeft className="w-3.5 h-3.5" /> {t('car.backToFleet')}
           </button>
           <div className="flex items-center gap-2">
             <button
               onClick={() => setFavorited(!favorited)}
-              className="w-9 h-9 border border-gold/25 flex items-center justify-center hover:bg-gold/10 transition-colors"
+              className="w-9 h-9 border border-rule flex items-center justify-center hover:bg-brand/10 transition-colors"
             >
-              <Heart className={`w-4 h-4 ${favorited ? 'text-gold fill-gold' : 'text-whiteer'}`} />
+              <Heart className={`w-4 h-4 ${favorited ? 'text-brand fill-brand' : 'text-ink-soft'}`} />
             </button>
             <button
               onClick={share}
-              className="w-9 h-9 border border-gold/25 flex items-center justify-center hover:bg-gold/10 transition-colors"
+              className="w-9 h-9 border border-rule flex items-center justify-center hover:bg-brand/10 transition-colors"
             >
-              <Share2 className="w-4 h-4 text-whiteer hover:text-gold" />
+              <Share2 className="w-4 h-4 text-ink-soft hover:text-brand" />
             </button>
           </div>
         </div>
@@ -129,7 +129,7 @@ export function CarDetailPage({
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
-            className="relative aspect-[4/3] bg-charcoal overflow-hidden cursor-zoom-in gradient-border"
+            className="relative aspect-[4/3] bg-paper-warm overflow-hidden cursor-zoom-in gradient-border"
             onClick={() => setZoomed(!zoomed)}
           >
             <img
@@ -138,12 +138,12 @@ export function CarDetailPage({
               className={`absolute inset-0 w-full h-full object-cover transition-transform duration-700 ${zoomed ? 'scale-150' : 'scale-100'}`}
             />
             <div className="absolute top-4 left-4 flex gap-2">
-              <span className="bg-gold/95 backdrop-blur px-3 py-1 text-[0.65rem] uppercase tracking-wide-2 text-obsidian">{car.category.name}</span>
+              <span className="bg-brand backdrop-blur px-3 py-1 text-[0.65rem] uppercase tracking-wide-2 text-white">{car.category.name}</span>
               {!car.available && (
                 <span className="bg-slate-800/90 backdrop-blur px-3 py-1 text-[0.65rem] uppercase tracking-wide-2 text-white">{t('car.currentlyReserved')}</span>
               )}
             </div>
-            <div className="absolute bottom-4 right-4 bg-obsidian/70 backdrop-blur px-3 py-1 text-xs text-white">
+            <div className="absolute bottom-4 right-4 bg-white/70 backdrop-blur px-3 py-1 text-xs text-white">
               {activeImage + 1} / {images.length}
             </div>
           </motion.div>
@@ -169,20 +169,20 @@ export function CarDetailPage({
           <p className="text-white mb-6 leading-relaxed text-lg">{car.tagline}</p>
 
           {/* Quick specs row */}
-          <div className="grid grid-cols-3 gap-3 mb-6 pb-6 border-b border-gold/12">
+          <div className="grid grid-cols-3 gap-3 mb-6 pb-6 border-b border-rule">
             <div className="text-center">
-              <Gauge className="w-5 h-5 text-gold mx-auto mb-1" />
-              <div className="text-xs text-whiteer uppercase tracking-wide-2">{t('car.topSpeed')}</div>
+              <Gauge className="w-5 h-5 text-brand mx-auto mb-1" />
+              <div className="text-xs text-ink-soft uppercase tracking-wide-2">{t('car.topSpeed')}</div>
               <div className="text-ink font-serif">{car.topSpeed}</div>
             </div>
             <div className="text-center">
-              <Zap className="w-5 h-5 text-gold mx-auto mb-1" />
-              <div className="text-xs text-whiteer uppercase tracking-wide-2">{t('car.acceleration')}</div>
+              <Zap className="w-5 h-5 text-brand mx-auto mb-1" />
+              <div className="text-xs text-ink-soft uppercase tracking-wide-2">{t('car.acceleration')}</div>
               <div className="text-ink font-serif">{car.acceleration}</div>
             </div>
             <div className="text-center">
-              <Star className="w-5 h-5 text-gold mx-auto mb-1" />
-              <div className="text-xs text-whiteer uppercase tracking-wide-2">{t('car.power')}</div>
+              <Star className="w-5 h-5 text-brand mx-auto mb-1" />
+              <div className="text-xs text-ink-soft uppercase tracking-wide-2">{t('car.power')}</div>
               <div className="text-ink font-serif">{car.power}</div>
             </div>
           </div>
@@ -197,8 +197,8 @@ export function CarDetailPage({
                   onClick={() => { setPackageType(p); setDays(p === 'daily' ? 1 : 1); }}
                   className={`p-4 border text-center transition-all ${
                     packageType === p
-                      ? 'border-gold bg-gold/12 text-gold'
-                      : 'border-gold/25 text-white hover:border-gold/50'
+                      ? 'border-gold bg-rule text-brand'
+                      : 'border-rule text-white hover:border-brand/40'
                   }`}
                 >
                   <div className="text-[0.65rem] uppercase tracking-wide-2 mb-1">{p === 'daily' ? t('car.daily') : p === 'weekly' ? t('car.weekly') : t('car.monthly')}</div>
@@ -215,13 +215,13 @@ export function CarDetailPage({
             <div className="mb-6 flex items-center gap-4">
               <Label className="uppercase-luxe">{t('car.days')}</Label>
               <div className="flex items-center gap-3">
-                <button onClick={() => setDays(Math.max(1, days - 1))} className="w-8 h-8 border border-gold/25 text-gold hover:bg-gold/10">−</button>
+                <button onClick={() => setDays(Math.max(1, days - 1))} className="w-8 h-8 border border-rule text-brand hover:bg-brand/10">−</button>
                 <span className="font-serif text-2xl text-ink w-10 text-center">{days}</span>
-                <button onClick={() => setDays(days + 1)} className="w-8 h-8 border border-gold/25 text-gold hover:bg-gold/10">+</button>
+                <button onClick={() => setDays(days + 1)} className="w-8 h-8 border border-rule text-brand hover:bg-brand/10">+</button>
               </div>
               <div className="ml-auto text-right">
-                <div className="text-xs text-whiteer uppercase tracking-wide-2">{t('car.total')}</div>
-                <div className="font-serif text-2xl text-gold">AED {new Intl.NumberFormat('en-AE').format(totalPrice)}</div>
+                <div className="text-xs text-ink-soft uppercase tracking-wide-2">{t('car.total')}</div>
+                <div className="font-serif text-2xl text-brand">AED {new Intl.NumberFormat('en-AE').format(totalPrice)}</div>
               </div>
             </div>
           )}
@@ -235,13 +235,13 @@ export function CarDetailPage({
                   placeholder={t('car.fullNameReq')}
                   value={booking.name}
                   onChange={e => setBooking({ ...booking, name: e.target.value })}
-                  className="bg-transparent border-gold/25 text-ink placeholder:text-ink-softer rounded-none"
+                  className="bg-transparent border-rule text-ink placeholder:text-ink-softer rounded-none"
                 />
                 <Input
                   placeholder={t('car.phoneReq')}
                   value={booking.phone}
                   onChange={e => setBooking({ ...booking, phone: e.target.value })}
-                  className="bg-transparent border-gold/25 text-ink placeholder:text-ink-softer rounded-none"
+                  className="bg-transparent border-rule text-ink placeholder:text-ink-softer rounded-none"
                 />
               </div>
               <Input
@@ -249,25 +249,25 @@ export function CarDetailPage({
                 placeholder={t('car.emailOptional')}
                 value={booking.email}
                 onChange={e => setBooking({ ...booking, email: e.target.value })}
-                className="bg-transparent border-gold/25 text-ink placeholder:text-ink-softer rounded-none"
+                className="bg-transparent border-rule text-ink placeholder:text-ink-softer rounded-none"
               />
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <Label className="text-[0.65rem] uppercase tracking-wide-2 text-whiteer mb-1 block">{t('car.pickup')}</Label>
+                  <Label className="text-[0.65rem] uppercase tracking-wide-2 text-ink-soft mb-1 block">{t('car.pickup')}</Label>
                   <Input
                     type="date"
                     value={booking.startDate}
                     onChange={e => setBooking({ ...booking, startDate: e.target.value })}
-                    className="bg-transparent border-gold/25 text-ink rounded-none [color-scheme:dark]"
+                    className="bg-transparent border-rule text-ink rounded-none [color-scheme:dark]"
                   />
                 </div>
                 <div>
-                  <Label className="text-[0.65rem] uppercase tracking-wide-2 text-whiteer mb-1 block">{t('car.return')}</Label>
+                  <Label className="text-[0.65rem] uppercase tracking-wide-2 text-ink-soft mb-1 block">{t('car.return')}</Label>
                   <Input
                     type="date"
                     value={booking.endDate}
                     onChange={e => setBooking({ ...booking, endDate: e.target.value })}
-                    className="bg-transparent border-gold/25 text-ink rounded-none [color-scheme:dark]"
+                    className="bg-transparent border-rule text-ink rounded-none [color-scheme:dark]"
                   />
                 </div>
               </div>
@@ -275,12 +275,12 @@ export function CarDetailPage({
                 placeholder={t('car.specialRequests')}
                 value={booking.notes}
                 onChange={e => setBooking({ ...booking, notes: e.target.value })}
-                className="bg-transparent border-gold/25 text-ink placeholder:text-ink-softer rounded-none min-h-[80px]"
+                className="bg-transparent border-rule text-ink placeholder:text-ink-softer rounded-none min-h-[80px]"
               />
               <Button
                 onClick={submit}
                 disabled={submitting || !car.available}
-                className="w-full bg-gold text-obsidian hover:bg-gold-bright rounded-none tracking-luxe uppercase text-xs disabled:opacity-50 shine-on-hover"
+                className="w-full bg-brand text-white hover:bg-brand-bright rounded-none tracking-luxe uppercase text-xs disabled:opacity-50 shine-on-hover"
               >
                 {submitting ? t('car.submitting') : !car.available ? t('car.currentlyUnavailable') : `${t('car.requestReservation')} · AED ${new Intl.NumberFormat('en-AE').format(totalPrice)}`}
               </Button>
@@ -297,30 +297,30 @@ export function CarDetailPage({
 
           {/* Trust badges */}
           <div className="grid grid-cols-2 gap-3 text-xs">
-            <div className="flex items-center gap-2 text-white"><Shield className="w-4 h-4 text-gold" /> {t('car.comprehensiveInsurance')}</div>
-            <div className="flex items-center gap-2 text-white"><Clock className="w-4 h-4 text-gold" /> {t('car.concierge247')}</div>
-            <div className="flex items-center gap-2 text-white"><Check className="w-4 h-4 text-gold" /> {car.deposit || 'No Deposit'}</div>
-            <div className="flex items-center gap-2 text-white"><Calendar className="w-4 h-4 text-gold" /> {car.mileageLimit || 'Unlimited km'}</div>
+            <div className="flex items-center gap-2 text-white"><Shield className="w-4 h-4 text-brand" /> {t('car.comprehensiveInsurance')}</div>
+            <div className="flex items-center gap-2 text-white"><Clock className="w-4 h-4 text-brand" /> {t('car.concierge247')}</div>
+            <div className="flex items-center gap-2 text-white"><Check className="w-4 h-4 text-brand" /> {car.deposit || 'No Deposit'}</div>
+            <div className="flex items-center gap-2 text-white"><Calendar className="w-4 h-4 text-brand" /> {car.mileageLimit || 'Unlimited km'}</div>
           </div>
         </div>
       </div>
 
       {/* Specs grid */}
-      <div className="max-w-7xl mx-auto px-6 lg:px-10 py-16 border-t border-gold/12">
+      <div className="max-w-7xl mx-auto px-6 lg:px-10 py-16 border-t border-rule">
         <SectionReveal>
           <div className="flex items-center gap-3 mb-10">
             <span className="gold-divider" />
             <span className="uppercase-luxe">{t('car.specs')}</span>
           </div>
         </SectionReveal>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-gold/12">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-rule">
           {specs.map((s, i) => {
             const Icon = s.icon;
             return (
               <SectionReveal key={s.label} delay={i * 0.05}>
-                <div className="bg-obsidian p-6 hover:bg-charcoal transition-colors">
-                  <Icon className="w-5 h-5 text-gold mb-3" />
-                  <div className="text-[0.65rem] uppercase tracking-wide-2 text-whiteer mb-1">{s.labelKey ? t(s.labelKey as any) : s.label}</div>
+                <div className="bg-white p-6 hover:bg-paper-warm transition-colors">
+                  <Icon className="w-5 h-5 text-brand mb-3" />
+                  <div className="text-[0.65rem] uppercase tracking-wide-2 text-ink-soft mb-1">{s.labelKey ? t(s.labelKey as any) : s.label}</div>
                   <div className="font-serif text-xl text-ink">{s.value}</div>
                 </div>
               </SectionReveal>
@@ -330,7 +330,7 @@ export function CarDetailPage({
       </div>
 
       {/* Description */}
-      <div className="max-w-4xl mx-auto px-6 lg:px-10 py-16 border-t border-gold/12">
+      <div className="max-w-4xl mx-auto px-6 lg:px-10 py-16 border-t border-rule">
         <SectionReveal>
           <div className="flex items-center gap-3 mb-10">
             <span className="gold-divider" />
@@ -349,7 +349,7 @@ export function CarDetailPage({
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                 {features.map(f => (
                   <div key={f} className="flex items-center gap-3 text-white">
-                    <span className="w-1.5 h-1.5 bg-gold rounded-full flex-shrink-0" />
+                    <span className="w-1.5 h-1.5 bg-brand rounded-full flex-shrink-0" />
                     {f}
                   </div>
                 ))}
@@ -361,14 +361,14 @@ export function CarDetailPage({
 
       {/* Related */}
       {related.length > 0 && (
-        <div className="max-w-7xl mx-auto px-6 lg:px-10 py-16 border-t border-gold/12">
+        <div className="max-w-7xl mx-auto px-6 lg:px-10 py-16 border-t border-rule">
           <SectionReveal>
             <div className="flex items-center justify-between mb-10">
               <div className="flex items-center gap-3">
                 <span className="gold-divider" />
                 <span className="uppercase-luxe">{t('car.youMayDesire')}</span>
               </div>
-              <button onClick={() => nav('/fleet')} className="text-xs uppercase-luxe text-gold hover:underline flex items-center gap-2">
+              <button onClick={() => nav('/fleet')} className="text-xs uppercase-luxe text-brand hover:underline flex items-center gap-2">
                 {t('cta.viewAll')} <ArrowRight className="w-3 h-3" />
               </button>
             </div>
@@ -377,13 +377,13 @@ export function CarDetailPage({
             {related.map((c, i) => (
               <SectionReveal key={c.id} delay={i * 0.1}>
                 <button onClick={() => nav(`/car/${c.slug}`)} className="group text-left w-full">
-                  <div className="relative aspect-[4/3] overflow-hidden bg-charcoal mb-3 gradient-border">
+                  <div className="relative aspect-[4/3] overflow-hidden bg-paper-warm mb-3 gradient-border">
                     <img src={c.heroImage} alt={c.model} className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1.2s] group-hover:scale-110" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-obsidian/80 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent" />
                   </div>
                   <div className="uppercase-luxe text-[0.65rem] mb-1">{c.brand.name}</div>
-                  <div className="font-serif text-xl text-ink group-hover:text-gold transition-colors">{c.model}</div>
-                  <div className="text-sm text-gold mt-1">AED {new Intl.NumberFormat('en-AE').format(c.priceDaily)} / day</div>
+                  <div className="font-serif text-xl text-ink group-hover:text-brand transition-colors">{c.model}</div>
+                  <div className="text-sm text-brand mt-1">AED {new Intl.NumberFormat('en-AE').format(c.priceDaily)} / day</div>
                 </button>
               </SectionReveal>
             ))}

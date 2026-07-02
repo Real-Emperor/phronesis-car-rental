@@ -112,7 +112,7 @@ export function ContactPage({ settings }: { settings: SiteSettings }) {
                 <div className="font-serif text-2xl text-ink mb-1">Chat on WhatsApp</div>
                 <div className="text-soft text-sm">Send us a message directly and we'll respond within minutes. Available 24/7.</div>
               </div>
-              <Send className="w-5 h-5 text-softer group-hover:text-gold group-hover:translate-x-1 transition-all" />
+              <Send className="w-5 h-5 text-softer group-hover:text-brand group-hover:translate-x-1 transition-all" />
             </div>
           </a>
         </SectionReveal>
@@ -129,10 +129,10 @@ export function ContactPage({ settings }: { settings: SiteSettings }) {
                     href={c.href}
                     target={c.href.startsWith('http') ? '_blank' : undefined}
                     rel="noreferrer"
-                    className="group flex items-center gap-5 py-5 border-t border-gold/12 last:border-b hover:bg-gold/[0.04] transition-colors px-3 -mx-3"
+                    className="group flex items-center gap-5 py-5 border-t border-rule last:border-b hover:bg-brand/[0.03] transition-colors px-3 -mx-3"
                   >
                     <div
-                      className="w-12 h-12 border flex items-center justify-center group-hover:bg-gold group-hover:border-gold transition-colors"
+                      className="w-12 h-12 border flex items-center justify-center group-hover:bg-brand group-hover:border-brand transition-colors"
                       style={c.isWhatsApp ? { borderColor: 'rgba(37, 211, 102, 0.4)' } : { borderColor: 'rgba(30, 64, 175,0.3)' }}
                     >
                       {c.isWhatsApp ? (
@@ -140,12 +140,12 @@ export function ContactPage({ settings }: { settings: SiteSettings }) {
                           <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
                         </svg>
                       ) : (
-                        c.icon && <c.icon className="w-5 h-5 text-gold group-hover:text-obsidian transition-colors" />
+                        c.icon && <c.icon className="w-5 h-5 text-brand group-hover:text-white transition-colors" />
                       )}
                     </div>
                     <div className="flex-1">
                       <div className="text-[0.65rem] uppercase-luxe mb-1">{c.label}</div>
-                      <div className="text-ink group-hover:text-gold transition-colors">{c.value}</div>
+                      <div className="text-ink group-hover:text-brand transition-colors">{c.value}</div>
                       <div className="text-xs text-softer mt-0.5">{c.desc}</div>
                     </div>
                   </a>
@@ -155,7 +155,7 @@ export function ContactPage({ settings }: { settings: SiteSettings }) {
 
             {/* Map */}
             <SectionReveal delay={0.1}>
-              <div className="mt-8 aspect-video bg-charcoal border border-gold/15 overflow-hidden">
+              <div className="mt-8 aspect-video bg-paper-warm border border-gold/15 overflow-hidden">
                 <iframe
                   title="Phronesis Atelier Location"
                   src="https://www.openstreetmap.org/export/embed.html?bbox=55.5%2C24.0%2C55.8%2C24.4&layer=mapnik&marker=24.2075%2C55.6458"
@@ -178,7 +178,7 @@ export function ContactPage({ settings }: { settings: SiteSettings }) {
                     <Input
                       value={form.name}
                       onChange={e => setForm({ ...form, name: e.target.value })}
-                      className="bg-transparent border-gold/25 text-ink rounded-none"
+                      className="bg-transparent border-rule text-ink rounded-none"
                     />
                   </div>
                   <div>
@@ -186,7 +186,7 @@ export function ContactPage({ settings }: { settings: SiteSettings }) {
                     <Input
                       value={form.phone}
                       onChange={e => setForm({ ...form, phone: e.target.value })}
-                      className="bg-transparent border-gold/25 text-ink rounded-none"
+                      className="bg-transparent border-rule text-ink rounded-none"
                     />
                   </div>
                 </div>
@@ -196,7 +196,7 @@ export function ContactPage({ settings }: { settings: SiteSettings }) {
                     type="email"
                     value={form.email}
                     onChange={e => setForm({ ...form, email: e.target.value })}
-                    className="bg-transparent border-gold/25 text-ink rounded-none"
+                    className="bg-transparent border-rule text-ink rounded-none"
                   />
                 </div>
                 <div>
@@ -205,7 +205,7 @@ export function ContactPage({ settings }: { settings: SiteSettings }) {
                     value={form.subject}
                     onChange={e => setForm({ ...form, subject: e.target.value })}
                     placeholder={t('contact.subjectPlaceholder')}
-                    className="bg-transparent border-gold/25 text-ink placeholder:text-ink-softer rounded-none"
+                    className="bg-transparent border-rule text-ink placeholder:text-ink-softer rounded-none"
                   />
                 </div>
                 <div>
@@ -213,19 +213,19 @@ export function ContactPage({ settings }: { settings: SiteSettings }) {
                   <Textarea
                     value={form.message}
                     onChange={e => setForm({ ...form, message: e.target.value })}
-                    className="bg-transparent border-gold/25 text-ink rounded-none min-h-[140px]"
+                    className="bg-transparent border-rule text-ink rounded-none min-h-[140px]"
                     placeholder={t('contact.messagePlaceholder')}
                   />
                 </div>
                 <Button
                   type="submit"
                   disabled={submitting}
-                  className="w-full bg-gold text-obsidian hover:bg-gold-bright rounded-none tracking-luxe uppercase text-xs disabled:opacity-50 shine-on-hover"
+                  className="w-full bg-brand text-white hover:bg-brand-bright rounded-none tracking-luxe uppercase text-xs disabled:opacity-50 shine-on-hover"
                 >
                   {submitting ? t('contact.sending') : t('contact.sendEnquiry')}
                 </Button>
                 <div className="flex items-center justify-center gap-2 text-xs text-softer pt-2">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-gold" />
+                  <CheckCircle2 className="w-3.5 h-3.5 text-brand" />
                   {t('contact.responsePromise')}
                 </div>
               </form>
@@ -247,7 +247,7 @@ export function ContactPage({ settings }: { settings: SiteSettings }) {
             <Accordion type="single" collapsible className="space-y-3">
               {faqs.map((faq, i) => (
                 <AccordionItem key={i} value={`item-${i}`} className="glass-card border-none px-6">
-                  <AccordionTrigger className="text-left text-ink font-serif text-lg hover:text-gold transition-colors hover:no-underline">
+                  <AccordionTrigger className="text-left text-ink font-serif text-lg hover:text-brand transition-colors hover:no-underline">
                     {faq.q}
                   </AccordionTrigger>
                   <AccordionContent className="text-soft leading-relaxed pt-2">
