@@ -403,3 +403,31 @@ Stage Summary:
 - Photos: 40 cars, all accurate, no broken images
 - Hero: Cinematic drift entrance animation with smoke, motion blur, continuous loop
 - Translations: Literary quality (Mahfouz/Premchand/Basheer style), CSS fixed for Arabic RTL
+
+---
+Task ID: phronesis-video-hero
+Agent: main
+Task: Replace image hero with auto-playing car video
+
+Work Log:
+- User provided 1080p MP4 video (12.7MB, 13 seconds)
+- Compressed to 2.5MB using ffmpeg (crf 32, H.264, faststart) for fast web loading
+- Saved to /public/hero-video.mp4
+- Rewrote CinematicHero component to use <video autoPlay muted loop playsInline>:
+  * Video auto-plays on page load (muted, looped, no controls)
+  * Poster image (car photo) shows while video loads
+  * onLoadedData triggers text fade-in (800ms)
+  * White/blue scrims over video for text readability
+  * Quick stats fade in after text (delay 0.4s)
+  - Respects prefers-reduced-motion
+  - Responsive (desktop/tablet/mobile)
+- Pushed to GitHub → Vercel auto-deployed (READY)
+- Verified live: video HTTP 200, 2.5MB, loads in <1s
+- Browser confirms: video playing=true, src correct
+- Text "The Art of Arrival" + CTAs fade in after video loads
+
+Stage Summary:
+- Video hero: LIVE at https://phronesis-car-rental.vercel.app
+- Video: 2.5MB, 1080p, 13s, auto-plays muted looped
+- Fade-in design: preserved (text + CTAs fade in after video loads)
+- Performance: <1 second load time
