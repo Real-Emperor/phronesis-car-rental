@@ -327,7 +327,7 @@ function FeaturedCarCard({ car, nav, index }: { car: Car; nav: (p: string) => vo
                 {car.category.name}
               </span>
               {!car.available && (
-                <span className="bg-ink text-white px-2.5 py-1 text-[0.65rem] uppercase tracking-wide font-semibold rounded shadow-sm">
+                <span className="bg-amber-500 text-white px-2.5 py-1 text-[0.65rem] uppercase tracking-wide font-semibold rounded shadow-md">
                   {t('common.reserved')}
                 </span>
               )}

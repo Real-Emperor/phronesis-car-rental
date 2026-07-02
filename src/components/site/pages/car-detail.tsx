@@ -138,12 +138,12 @@ export function CarDetailPage({
               className={`absolute inset-0 w-full h-full object-cover transition-transform duration-700 ${zoomed ? 'scale-150' : 'scale-100'}`}
             />
             <div className="absolute top-4 left-4 flex gap-2">
-              <span className="bg-brand backdrop-blur px-3 py-1 text-[0.65rem] uppercase tracking-wide-2 text-white">{car.category.name}</span>
+              <span className="bg-brand px-3 py-1 text-[0.65rem] uppercase tracking-wide font-semibold rounded text-white shadow-md">{car.category.name}</span>
               {!car.available && (
-                <span className="bg-slate-800/90 backdrop-blur px-3 py-1 text-[0.65rem] uppercase tracking-wide-2 text-white">{t('car.currentlyReserved')}</span>
+                <span className="bg-amber-500 px-3 py-1 text-[0.65rem] uppercase tracking-wide font-semibold rounded text-white shadow-md">{t('car.currentlyReserved')}</span>
               )}
             </div>
-            <div className="absolute bottom-4 right-4 bg-white/70 backdrop-blur px-3 py-1 text-xs text-ink">
+            <div className="absolute bottom-4 right-4 bg-slate-900/80 backdrop-blur px-3 py-1 text-xs text-white rounded">
               {activeImage + 1} / {images.length}
             </div>
           </motion.div>

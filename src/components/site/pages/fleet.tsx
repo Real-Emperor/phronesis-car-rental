@@ -256,9 +256,9 @@ function FleetCarCard({ car, nav, index }: { car: Car; nav: (p: string) => void;
 
           <div className="absolute top-4 left-4 flex flex-col gap-2">
             {!car.available && (
-              <span className="bg-slate-800/90 backdrop-blur px-3 py-1 text-[0.65rem] uppercase tracking-wide-2 text-soft">{t('common.reserved')}</span>
+              <span className="bg-amber-500 px-2.5 py-1 text-[0.65rem] uppercase tracking-wide font-semibold rounded text-white shadow-md">{t('common.reserved')}</span>
             )}
-            <span className="bg-brand backdrop-blur px-3 py-1 text-[0.65rem] uppercase tracking-wide-2 text-white">
+            <span className="bg-brand px-2.5 py-1 text-[0.65rem] uppercase tracking-wide font-semibold rounded text-white shadow-md">
               {car.category.name}
             </span>
           </div>
