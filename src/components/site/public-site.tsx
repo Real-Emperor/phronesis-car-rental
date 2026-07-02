@@ -336,6 +336,21 @@ function Footer({ settings, nav }: { settings: any; nav: (p: string) => void }) 
         <div className="max-w-7xl mx-auto px-6 lg:px-10 py-5 flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-ink-softer">
           <div>© {new Date().getFullYear()} {settings.brandName}. {t('footer.rights')}</div>
           <div className="tracking-wide-2 uppercase">{t('footer.crafted')}</div>
+          {/* Phronesis Studio attribution link — identical to al-ain-properties reference */}
+          <a
+            href="https://phronesis-studio.com/en"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 text-xs text-ink-softer hover:text-brand transition-colors group"
+            title="Phronesis Studio — Studio of Practical Wisdom"
+          >
+            <img
+              src="/phronesis-logo.png"
+              alt="Phronesis Studio"
+              className="h-6 w-6 object-contain opacity-80 group-hover:opacity-100 transition-opacity"
+            />
+            <span>Website crafted by Phronesis Studio</span>
+          </a>
         </div>
       </div>
     </footer>

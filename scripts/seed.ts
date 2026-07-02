@@ -30,6 +30,9 @@ async function main() {
   const mercedes    = await db.brand.create({ data: { name: 'Mercedes-Maybach', slug: 'mercedes-maybach' } });
   const rover       = await db.brand.create({ data: { name: 'Range Rover', slug: 'range-rover' } });
   const porsche     = await db.brand.create({ data: { name: 'Porsche',     slug: 'porsche' } });
+  const aston       = await db.brand.create({ data: { name: 'Aston Martin', slug: 'aston-martin' } });
+  const bmw         = await db.brand.create({ data: { name: 'BMW',         slug: 'bmw' } });
+  const audi        = await db.brand.create({ data: { name: 'Audi',        slug: 'audi' } });
 
   // ---------- Cars ----------
   const cars = [
@@ -207,6 +210,121 @@ async function main() {
         'https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1600&q=85',
         'https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=1600&q=85',
         'https://images.unsplash.com/photo-1583121274602-3e2820c69888?w=1600&q=85',
+      ],
+    },
+    // ===== NEW: 2nd SUV =====
+    {
+      slug: 'mercedes-g63-amg',
+      brand: mercedes,
+      model: 'G63 AMG',
+      year: 2024,
+      category: suv,
+      priceDaily: 2200, priceWeekly: 13200, priceMonthly: 52000,
+      engine: '4.0L V8 Biturbo', power: '585 HP', topSpeed: '240 km/h', acceleration: '4.5s (0-100)',
+      transmission: '9-speed Auto', seats: 5, fuelType: 'Petrol', drivetrain: 'AWD',
+      tagline: 'The iconic box — reimagined as a 585-horsepower statement.',
+      description: 'The Mercedes-AMG G63 is the definitive luxury off-roader — a hand-built 4.0L V8 biturbo, three locking differentials, and that unmistakable squared-off silhouette. Inside, Nappa leather, dual 12.3-inch displays, and Burmester surround sound create a cockpit unlike anything else on the road. Equally at home carving desert dunes or pulling up to a 5-star hotel.',
+      features: ['Hand-Built V8', 'Three Locking Differentials', 'Burmester Surround Sound', 'Nappa Leather Interior', 'Adaptive Damping', 'AMG Performance Exhaust'],
+      color: 'Obsidian Black',
+      available: true, featured: false,
+      mileageLimit: '300 km/day', deposit: 'AED 5,000 refundable',
+      heroImage: 'https://images.unsplash.com/photo-1617469767053-d3b523a0b982?w=1600&q=85',
+      images: [
+        'https://images.unsplash.com/photo-1617469767053-d3b523a0b982?w=1600&q=85',
+        'https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?w=1600&q=85',
+        'https://images.unsplash.com/photo-1612825173281-9a193378527e?w=1600&q=85',
+      ],
+    },
+    // ===== NEW: 2nd Hypercar =====
+    {
+      slug: 'ferrari-sf90-stradale',
+      brand: ferrari,
+      model: 'SF90 Stradale',
+      year: 2024,
+      category: hyper,
+      priceDaily: 5500, priceWeekly: 33000, priceMonthly: 120000,
+      engine: '4.0L V8 + 3 Electric Motors', power: '986 HP', topSpeed: '340 km/h', acceleration: '2.5s (0-100)',
+      transmission: '8-speed DCT', seats: 2, fuelType: 'Hybrid', drivetrain: 'AWD',
+      tagline: 'Ferrari\'s first series-production plug-in hybrid hypercar.',
+      description: 'The SF90 Stradale is a technological watershed — a 4.0L twin-turbo V8 paired with three electric motors producing a combined 986 horsepower. 0-100 in 2.5 seconds. This is the most powerful road-going Ferrari ever built, and the first to feature all-wheel drive in a mid-engine layout. Available for the discerning few who demand the absolute pinnacle.',
+      features: ['986 HP Hybrid Powertrain', '3 Electric Motors', 'All-Wheel Drive', 'eManettino Mode Selector', 'Carbon Fibre Monocoque', 'Plug-in Hybrid (25km EV range)'],
+      color: 'Rosso Corsa',
+      available: true, featured: true,
+      mileageLimit: '200 km/day', deposit: 'AED 12,000 refundable',
+      heroImage: 'https://images.unsplash.com/photo-1592198084033-aade902d1aae?w=1600&q=85',
+      images: [
+        'https://images.unsplash.com/photo-1592198084033-aade902d1aae?w=1600&q=85',
+        'https://images.unsplash.com/photo-1583121274602-3e2820c69888?w=1600&q=85',
+        'https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=1600&q=85',
+      ],
+    },
+    // ===== NEW: 1st Convertible =====
+    {
+      slug: 'aston-martin-vantage-roadster',
+      brand: aston,
+      model: 'Vantage Roadster',
+      year: 2024,
+      category: convert,
+      priceDaily: 2800, priceWeekly: 16800, priceMonthly: 65000,
+      engine: '4.0L V8 Twin-Turbo', power: '503 HP', topSpeed: '306 km/h', acceleration: '3.7s (0-100)',
+      transmission: '8-speed ZF', seats: 2, fuelType: 'Petrol', drivetrain: 'RWD',
+      tagline: 'Open-top British theatre, with a German heart.',
+      description: 'The Aston Martin Vantage Roadster folds its fabric roof in just 7 seconds — at speeds up to 50 km/h — transforming from a coupe to a cabriolet without missing a beat. Powered by a 4.0L twin-turbo V8 producing 503 horsepower, the Vantage delivers a visceral, analog driving experience wrapped in timeless British craftsmanship. The perfect companion for an evening drive along Al Ain\'s oasis roads.',
+      features: ['7-Second Folding Roof', '4.0L Twin-Turbo V8', 'Sport+ Mode', 'Bose Audio', 'Carbon Fibre Trim', 'Limited-Slip Differential'],
+      color: 'Aston Martin Racing Green',
+      available: true, featured: true,
+      mileageLimit: '250 km/day', deposit: 'AED 6,000 refundable',
+      heroImage: 'https://images.unsplash.com/photo-1614026480209-cf3f17fb13e8?w=1600&q=85',
+      images: [
+        'https://images.unsplash.com/photo-1614026480209-cf3f17fb13e8?w=1600&q=85',
+        'https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=1600&q=85',
+        'https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1600&q=85',
+      ],
+    },
+    // ===== NEW: 2nd Convertible =====
+    {
+      slug: 'bmw-m4-convertible',
+      brand: bmw,
+      model: 'M4 Competition Convertible',
+      year: 2024,
+      category: convert,
+      priceDaily: 1600, priceWeekly: 9600, priceMonthly: 38000,
+      engine: '3.0L Inline-6 Twin-Turbo', power: '503 HP', topSpeed: '280 km/h', acceleration: '3.9s (0-100)',
+      transmission: '8-speed M Steptronic', seats: 4, fuelType: 'Petrol', drivetrain: 'RWD',
+      tagline: 'The open-top M car — every drive, every season.',
+      description: 'The BMW M4 Competition Convertible combines the visceral performance of the M division with the freedom of open-top driving. A 503-horsepower inline-6, M-tuned adaptive suspension, and a folding soft-top that opens in just 14 seconds. The ideal choice for those who want supercar pace with room for friends and the wind in their hair.',
+      features: ['503 HP Inline-6', 'M Sport Differential', 'Adaptive M Suspension', '14-Second Folding Roof', 'Harman Kardon Audio', 'Carbon Roof (Coupe)'],
+      color: 'Sao Paulo Yellow',
+      available: true, featured: false,
+      mileageLimit: '300 km/day', deposit: 'AED 4,000 refundable',
+      heroImage: 'https://images.unsplash.com/photo-1555215695-3004980ad54e?w=1600&q=85',
+      images: [
+        'https://images.unsplash.com/photo-1555215695-3004980ad54e?w=1600&q=85',
+        'https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?w=1600&q=85',
+        'https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1600&q=85',
+      ],
+    },
+    // ===== NEW: 3rd SUV for variety =====
+    {
+      slug: 'audi-rs-q8',
+      brand: audi,
+      model: 'RS Q8',
+      year: 2024,
+      category: suv,
+      priceDaily: 1800, priceWeekly: 10800, priceMonthly: 42000,
+      engine: '4.0L V8 Twin-Turbo', power: '591 HP', topSpeed: '305 km/h', acceleration: '3.8s (0-100)',
+      transmission: '8-speed Tiptronic', seats: 5, fuelType: 'Petrol', drivetrain: 'AWD',
+      tagline: 'The fastest SUV in Audi\'s history.',
+      description: 'The Audi RS Q8 is the apex of Audi\'s SUV lineup — a 591-horsepower V8, RS-specific quattro all-wheel drive, and a 0-100 sprint of just 3.8 seconds. The Nürburgring-tuned suspension and optional carbon ceramic brakes make this the most capable performance SUV on the market. Luxury, space, and devastating pace in one package.',
+      features: ['591 HP V8', 'Quattro AWD', 'RS Sport Suspension', 'Carbon Ceramic Brakes', 'Bang & Olufsen Audio', 'Virtual Cockpit Plus'],
+      color: 'Nardo Grey',
+      available: true, featured: false,
+      mileageLimit: '300 km/day', deposit: 'AED 4,500 refundable',
+      heroImage: 'https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?w=1600&q=85',
+      images: [
+        'https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?w=1600&q=85',
+        'https://images.unsplash.com/photo-1617469767053-d3b523a0b982?w=1600&q=85',
+        'https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?w=1600&q=85',
       ],
     },
   ];
