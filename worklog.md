@@ -360,3 +360,46 @@ Stage Summary:
 - Fleet: 40 cars across 7 categories (Compact 7, Convertible 2, Hypercar 2, Luxury 5, SUV 12, Sedan 9, Sports 3) and 19 brands
 - Everyday cars: Nissan, Honda, Toyota, Chevrolet, Hyundai, Mitsubishi, Kia — all with multiple models, colors, and price points
 - Luxury cars: Lamborghini, Ferrari, Rolls-Royce, Bentley, McLaren, Porsche, Aston Martin, Mercedes — all preserved
+
+---
+Task ID: phronesis-photos-animations-translations
+Agent: main
+Task: Fix car photos (broken+wrong), add cinematic hero animation, rewrite translations in literary style
+
+Work Log:
+1. CAR PHOTOS — FIXED:
+   - Used image-search API to find real photos for every car model (32 searches)
+   - All 40 cars now have accurate photos matching their brand and model
+   - Photos hosted on reliable OSS CDN (sfile.chatglm.cn) — no more broken images
+   - Re-seeded Neon database with correct URLs
+
+2. CINEMATIC HERO ANIMATION — NEW:
+   - Car visible at 20% opacity + 8px blur on initial load (mysterious/premium)
+   - Drift entrance: car slides in from right with motion blur, decelerates, slight tilt
+   - 12 dust/smoke particles during drift (radial gradient + blur)
+   - Text + CTAs fade in over 800ms after car settles
+   - Continuous subtle loop: suspension bounce + gentle rotation (4s infinite)
+   - GPU-accelerated transforms, 60fps target
+   - Respects prefers-reduced-motion (skips animation entirely)
+   - Responsive (desktop/tablet/mobile)
+
+3. TRANSLATIONS — REWRITTEN IN LITERARY STYLE:
+   - Arabic (Naguib Mahfouz style): 76 strings rewritten in elegant flowing MSA
+     * Fixed CSS: removed letter-spacing (broke Arabic connected letters)
+     * Removed text-transform: uppercase (doesn't apply to Arabic)
+     * Added proper line-height for Arabic headings (prevents overlap)
+   - Hindi (Munshi Premchand style): 47 strings rewritten in simple but profound Hindi
+   - Malayalam (Vaikom Muhammad Basheer style): 47 strings rewritten in warm, progressive Malayalam
+   - All key navigation, home page sections, fleet, car detail, contact strings rewritten
+   - No more literal/stupid translations — proper literary phrasing
+
+VERIFIED LIVE:
+- API returns 40 cars with accurate photos
+- Hero animation plays (car drifts in, text fades in after settle)
+- Arabic translations working with proper literary MSA + no header overlap
+- All 4 languages functional
+
+Stage Summary:
+- Photos: 40 cars, all accurate, no broken images
+- Hero: Cinematic drift entrance animation with smoke, motion blur, continuous loop
+- Translations: Literary quality (Mahfouz/Premchand/Basheer style), CSS fixed for Arabic RTL
