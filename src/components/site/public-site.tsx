@@ -19,6 +19,7 @@ import { FloatingWhatsApp } from './floating-whatsapp';
 import { BackToTop } from './back-to-top';
 import { LanguageSwitcher } from './language-switcher';
 import { CarIntro } from './car-intro';
+import { DemoDisclaimerPopup } from './demo-disclaimer-popup';
 
 export interface Route {
   name: 'home' | 'fleet' | 'car' | 'about' | 'contact' | 'admin';
@@ -86,6 +87,7 @@ function PublicSiteInner({ route }: { route: Route }) {
   return (
     <div className="min-h-screen flex flex-col bg-paper text-ink" dir={dir}>
       <CarIntro />
+      <DemoDisclaimerPopup />
       <ScrollProgress />
       <Header
         settings={settings_}
