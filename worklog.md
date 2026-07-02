@@ -329,3 +329,34 @@ Stage Summary:
 - Identical design, copy, and behavior to al-ain-properties reference
 - Shows on every page load, closes on "I Agree" or "أنا أوافق"
 - "Crafted by Studio of Phronesis" attribution included
+
+---
+Task ID: phronesis-database-live
+Agent: main
+Task: Connect Neon PostgreSQL + add 25+ everyday cars + bring fleet to life
+
+Work Log:
+- User provided Neon PostgreSQL connection string
+- Set DATABASE_URL in Vercel environment variables (production + preview + development)
+- Pushed Prisma schema to Neon database (all tables created successfully)
+- Expanded seed script with 25+ everyday cars across 8 new brands:
+  * Nissan (6): Sunny, Altima, Maxima, Patrol, Kicks, Pathfinder
+  * Honda (3): Civic, Accord, City
+  * Toyota (4): Camry, Corolla, Land Cruiser, Hilux
+  * Hyundai (3): Elantra, Sonata, Tucson
+  * Chevrolet (3): Tahoe, Malibu, Spark
+  * Mitsubishi (3): Lancer EX, Pajero, ASX
+  * Kia (2): Picanto, Sportage
+  * Mercedes-Benz (3): C-Class, E-Class, GLE
+- Added 2 new categories: Sedan, Compact
+- Seeded Neon database: 40 cars total (13 luxury/sports + 25 everyday + 2 existing)
+- Prices range from AED 70/day (Kia Picanto) to AED 5,500/day (Ferrari SF90)
+- Committed + pushed to GitHub → Vercel auto-deployed
+- Verified live: API returns 40 cars, fleet page shows "40 automobiles" with all brands visible
+
+Stage Summary:
+- Database: Neon PostgreSQL CONNECTED and SEEDED (40 cars)
+- Vercel: LIVE at https://phronesis-car-rental.vercel.app with full fleet
+- Fleet: 40 cars across 7 categories (Compact 7, Convertible 2, Hypercar 2, Luxury 5, SUV 12, Sedan 9, Sports 3) and 19 brands
+- Everyday cars: Nissan, Honda, Toyota, Chevrolet, Hyundai, Mitsubishi, Kia — all with multiple models, colors, and price points
+- Luxury cars: Lamborghini, Ferrari, Rolls-Royce, Bentley, McLaren, Porsche, Aston Martin, Mercedes — all preserved
