@@ -192,9 +192,14 @@
     font-family: var(--font-noto-malayalam), 'Noto Sans Malayalam', sans-serif;
     font-weight: 700;
   }
-  html[dir="rtl"] .tracking-luxe { letter-spacing: 0.12em; }
-  html[dir="rtl"] .tracking-wide-2 { letter-spacing: 0.08em; }
-  html[dir="rtl"] .uppercase-luxe { letter-spacing: 0.12em; }
+  html[dir="rtl"] .tracking-luxe { letter-spacing: 0; }
+  html[dir="rtl"] .tracking-wide-2 { letter-spacing: 0; }
+  html[dir="rtl"] .uppercase-luxe { letter-spacing: 0; text-transform: none; }
+  /* Arabic needs more line-height for readability */
+  html[dir="rtl"] h1 { line-height: 1.3; }
+  html[dir="rtl"] h2 { line-height: 1.35; }
+  html[dir="rtl"] h3 { line-height: 1.4; }
+  html[dir="rtl"] p { line-height: 1.8; }
 }
 
 /* ============================================================
